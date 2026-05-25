@@ -554,6 +554,95 @@ Use focused checks for small changes.
 
 Use full gates for release preparation, broad plumbing changes, semantic closure, or stabilization.
 
+## Pull requests and merge conflicts are resolvable by intent
+
+A pull request is not only a diff.
+
+A merge conflict is not only a text collision.
+
+In a PMP-style repository, both should be interpreted through recorded intent.
+
+If workorders exist, an AI assistant, maintainer, or reviewer can inspect the workorder history and ask:
+
+```text
+What was this change trying to accomplish?
+What constraints was it preserving?
+What was explicitly out of scope?
+Which later workorder superseded or refined the earlier intent?
+Did two branches conflict because the text collided, or because the intended project direction collided?
+```
+
+That makes many conflicts easier to resolve.
+
+The correct resolution is not always "pick ours" or "pick theirs."
+
+Sometimes the correct resolution is:
+
+```text
+1. Read the competing workorders.
+2. Identify the two intents.
+3. Decide whether they are compatible.
+4. If compatible, merge the intent, not just the text.
+5. If incompatible, stop and ask the human for the governing decision.
+6. Create a new resolving workorder that records the decision.
+7. Apply the code or document change according to that new workorder.
+```
+
+This is one of the main reasons workorders matter.
+
+A finished diff shows what changed.
+
+A workorder explains why the change was supposed to happen.
+
+When conflicts happen, the "why" is often the part an AI needs most.
+
+## Resolving workorders
+
+A resolving workorder is a new workorder created specifically to settle competing intents.
+
+Use one when:
+
+- two pull requests modify the same doctrine, schema, command, or architecture area;
+- two branches both appear reasonable but imply different project directions;
+- a conflict cannot be safely solved from the diff alone;
+- prior instructions are stale, ambiguous, or partially superseded;
+- the human makes a new decision that should govern the merge.
+
+A resolving workorder should include:
+
+```text
+# Resolve <conflict or competing intent>
+
+## Purpose
+## Conflicting workorders or branches
+## Intent A
+## Intent B
+## Governing decision
+## Files/areas to reconcile
+## Out of scope
+## Required checks
+## Expected result
+## Completion note
+```
+
+The executor should then cite the resolving workorder in the PR or merge completion notes.
+
+Suggested language:
+
+```text
+## Workorder
+Executed: workorders/YYYY-MM-DD-HHMM-by-githubusername-resolve-<topic>.md
+
+## Conflict resolution
+Resolved competing intent between:
+- workorders/<older-intent>.md
+- workorders/<newer-intent>.md
+```
+
+Do not let the merge tool become the project manager.
+
+The project manager is the recorded intent.
+
 ## Default A-to-B instruction shape
 
 A good human-to-AI instruction for this kind of repo looks like this:
