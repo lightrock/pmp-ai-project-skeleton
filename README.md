@@ -232,6 +232,7 @@ workorders/TEMPLATE.md                     starter workorder template
 schemas/workorder-contract.json            machine-readable workorder governance contract
 tools/pmp_check.py                         lightweight governance checker
 tests/test_pmp_check.py                    tests for the governance checker
+docs/releases/v0.3.0.md                    v0.3.0 release notes
 docs/architecture/semantic-folder-hierarchy.md
                                            architecture-first folder doctrine
 docs/origin/stream-of-consciousness.md     preserved origin/manifesto capture
@@ -275,13 +276,15 @@ This first public skeleton is shared so other people can use it, fork it, simpli
 
 ## Status
 
-`v0.2.0` is the current public skeleton.
+`v0.3.0` is the current public skeleton.
 
-It includes the cleaner public README, `AGENTS.md`, workorder guidance, the preserved origin trail, examples, and the architecture-first folder philosophy.
+It includes the cleaner public README, `AGENTS.md`, workorder guidance, the preserved origin trail, examples, the architecture-first folder philosophy, and the first lightweight governance checker.
 
 It is usable, but not finished.
 
-Expect the repo to evolve from captured doctrine toward cleaner docs, check runners, examples, and workflow tooling.
+Expect the repo to evolve from captured doctrine toward stronger checks, examples, and workflow tooling.
+
+See [`docs/releases/v0.3.0.md`](docs/releases/v0.3.0.md) for release notes.
 
 ## License
 
