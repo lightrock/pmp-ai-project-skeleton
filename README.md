@@ -14,6 +14,8 @@ The new repo should become the place for the project's purpose, architecture cog
 
 Do not keep the real project living only in chat.
 
+This is intended to be **AI-vendor-agnostic GitHub repo interaction**. The repo is the shared operating substrate. A human may use ChatGPT, Codex, Copilot, Claude, Gemini, local models, contractor tooling, or future AI systems, but the project memory, workorders, intent records, checks, and architecture doctrine should live in the repository instead of being trapped inside one vendor's chat window.
+
 Before doing substantial work, paste this into your foreground AI chat. The foreground AI is separate from the executor AI: think GPT for planning and Codex for execution. Talk to the foreground AI; the foreground AI turns intent into workorders for the executor:
 
 ```text
