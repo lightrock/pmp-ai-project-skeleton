@@ -73,7 +73,7 @@ Human-readable documentation is no longer the primary artifact.
 Machine-usable architecture cognition is.
 That is a real distinction.
 
-Those projects are cool, but they are mostly aimed at helping humans or coding agents understand existing stuff:
+Other AI-assisting projects are cool, but they are mostly aimed at helping humans or coding agents understand existing stuff:
 
 CodeGraph:
 pre-indexed local code knowledge graph so agents use fewer tokens/tool calls while navigating codebases.
