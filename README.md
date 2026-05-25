@@ -210,3 +210,17 @@ Expect the repo to evolve from captured doctrine toward cleaner docs, check runn
 ## License
 
 Apache-2.0.
+
+## Suggestion for your first test-drive in a new repository
+
+After you create a new project from this template, try this before making any further architecture choices:
+
+```text
+Configure this new project according to the understandings of James Grier Miller's Living Systems.
+```
+
+Then let your AI inspect the repo, reason about the project as a living system, and propose the first architecture pass.
+
+The bet is that you may be pleasantly surprised. Once the AI has a systems vocabulary for boundaries, inputs, outputs, subsystems, memory, decision, communication, and adaptation, it can start working at a different level than generic app scaffolding.
+
+Suddenly your AI may go turbo on you in a way you might not have experienced before.
