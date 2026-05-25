@@ -300,7 +300,11 @@ Apache-2.0.
 
 ## Suggestion for your first test-drive in a new repository
 
-After you create a new project from this template, try this before making any further architecture choices:
+You already pasted the startup script into your AI, right?
+
+Before asking the AI to make architecture choices, use the **Foreground AI quickstart** above so it knows to inspect the repo, read `README.md` and `AGENTS.md`, respect current repo state, decide whether the work belongs in foreground chat or a workorder, and keep copy/paste outputs clean.
+
+Then try this:
 
 ```text
 Configure this new project according to the understandings of James Grier Miller's Living Systems.
