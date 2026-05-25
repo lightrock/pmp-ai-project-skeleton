@@ -321,6 +321,8 @@ A lesson learned is not a diary entry.
 
 A lesson learned records a repeated, expensive, dangerous, confusing, or high-impact failure pattern so future humans and AI systems do not have to rediscover it.
 
+Workdorders to executor AI (Codex for example) come with instructions to automatically produce and check-in a lessons learned related to the workorder filename when appropriate.
+
 Use lessons learned for things like:
 
 - the same mistake happened twice;
