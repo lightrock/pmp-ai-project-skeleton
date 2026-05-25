@@ -148,13 +148,15 @@ Human docs become views, explanations, and audit artifacts generated from that s
 That is a damn strong thesis.
 
 
-On Sun, May 24, 2026 at 8:39 AM Allen Francom <light.rock@gmail.com> wrote:
 So I make the following observations
 
 Cool
 https://github.com/colbymchenry/codegraph
+
 https://github.com/Lum1104/Understand-Anything
+
 https://github.com/rohitg00/ai-engineering-from-scratch
+
 
 However
 
