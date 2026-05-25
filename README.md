@@ -106,3 +106,482 @@ And so that is the role of my "project manager" AI that I generated to manage pr
 It's not about me-atware, it's about AI guys
 
 Maybe there should be an opensource for that one
+
+
+----------------------------------------------------------------------------------------
+
+# PMP Skeleton Operating Protocol
+
+This section captures the first useful operating rules for a forkable PMP-style repository.
+
+The point is not to create paperwork for its own sake.
+
+The point is to make AI-assisted work durable, inspectable, and less stupid.
+
+A serious AI project should not depend on one chat window remembering what the human meant.
+
+The repository should remember.
+
+## Workorders
+
+A workorder is a committed task contract.
+
+It is not a scratchpad.
+It is not a chat transcript.
+It is not a generic pull request summary.
+It is not a replacement for standing doctrine.
+
+A workorder explains what the next human, AI assistant, coding agent, or review process is supposed to do.
+
+A good workorder helps two audiences:
+
+- the current executor, who needs exact scope and checks now;
+- future humans and AI systems, who need to know what was decided, by whom, when, and why.
+
+The workorder file is the contract, not the AI vendor.
+
+## Normal workorder flow
+
+The normal flow is:
+
+1. A human discusses a substantial task with a foreground assistant.
+2. The foreground assistant recognizes that the task needs durable instructions.
+3. The foreground assistant creates a dated workorder file under `workorders/`.
+4. The foreground assistant gives the human one exact executor instruction.
+5. The executor reads the committed workorder and performs only that named scope.
+6. The executor reports what changed, what checks ran, and what remains unresolved.
+
+The human decides and approves the work.
+
+The foreground assistant turns that decision into a durable task contract.
+
+The executor carries out the named scope.
+
+## When to create a workorder
+
+Create a workorder for substantial or process-sensitive work, including:
+
+- architecture doctrine changes;
+- command protocol changes;
+- AGENTS.md or AI-start-here changes;
+- check-runner, manifest, CI, or release-gate changes;
+- schema, contract, or boundary changes;
+- broad documentation changes that affect future contributor behavior;
+- tasks intended for another coding agent or executor to perform later;
+- changes where intent matters as much as the diff.
+
+Do not create a workorder for every typo, one-line README edit, or tiny safe direct change unless the change modifies standing process or future contributor behavior.
+
+## Workorder filename pattern
+
+Use one permanent dated file per substantial task:
+
+```text
+workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md
+```
+
+Examples:
+
+```text
+workorders/2026-05-24-0930-by-lightrock-add-command-protocol.md
+workorders/2026-05-24-1015-by-lightrock-create-demo-skeleton.md
+```
+
+Do not use:
+
+```text
+workorders/current-task.md
+workorders/latest.md
+workorders/next.md
+```
+
+Those names destroy history.
+
+## Required workorder sections
+
+A useful workorder should include:
+
+```text
+# <Task title>
+
+## Purpose
+## Scope
+## Files/areas likely to change
+## Out of scope
+## Constraints
+## Required checks
+## Expected result
+## Fallback behavior
+```
+
+Add more sections only when the task needs them.
+
+## Launch instruction
+
+After a workorder exists, give the executor one exact line:
+
+```text
+Read workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md and execute it.
+```
+
+Use the actual dated filename.
+
+## Completion note
+
+For workorder-driven changes, the executor should cite the exact workorder path in completion notes and pull request text.
+
+Suggested PR body block:
+
+```text
+## Workorder
+Executed: workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md
+```
+
+Do not rely on the AI session to remember why the work happened.
+
+Put the reason in the repo.
+
+## Conflict check
+
+Before executing a workorder, inspect recent files in `workorders/` for overlap.
+
+If a recent workorder appears to compete with, supersede, or modify the same architecture doctrine, command protocol, schema, boundary, release path, check runner, or contributor behavior, stop and report the possible conflict.
+
+Do not proceed until the human gives an explicit override, for example:
+
+```text
+Force execute workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md despite the reported conflict.
+```
+
+## Lessons learned
+
+A lesson learned is not a diary entry.
+
+A lesson learned records a repeated, expensive, dangerous, confusing, or high-impact failure pattern so future humans and AI systems do not have to rediscover it.
+
+Use lessons learned for things like:
+
+- the same mistake happened twice;
+- an AI kept making a plausible but wrong assumption;
+- a command or workflow was ambiguous;
+- a repo convention was not discoverable;
+- a test failure revealed a missing architectural rule;
+- a generated artifact looked correct but implied the wrong capability;
+- a human had to explain the same boundary again.
+
+If many lessons learned are being generated, treat that as a smoke signal:
+
+```text
+Something is burning.
+```
+
+It may mean the repo doctrine is unclear, the workflow is too fragile, the commands are overloaded, or the architecture has not been made machine-usable enough.
+
+## Human-to-AI project commands
+
+A PMP-style repo should teach AI assistants what certain human phrases mean.
+
+The goal is simple:
+
+A project command should mean the same thing no matter which human, AI window, coding agent, contractor, reviewer, or future maintainer hears it.
+
+### Command: start a new tab
+
+When a human says:
+
+```text
+start a new tab
+```
+
+Do not continue implementation work.
+
+Instead, produce a fresh copy/paste-ready handoff prompt for a new working context.
+
+The prompt should tell the next worker:
+
+```text
+repository: <owner/repo>
+current repo state beats chat memory
+read the required repo discipline files
+identify the current state as "verify against repo"
+state the project lane
+state the constraints
+state what not to do
+state the next likely work
+make the smallest doctrine-preserving change when unsure
+```
+
+Do not expose private chain-of-thought.
+
+Do provide:
+
+```text
+architecture rationale
+operating discipline
+repo-reading instructions
+decision rules
+safety checks
+```
+
+The next worker needs usable reasoning discipline, not anyone's private scratchpad.
+
+### Command: make a workorder
+
+When a human says:
+
+```text
+make a workorder
+create a workorder
+write a workorder
+```
+
+The foreground assistant should generate a dated workorder file for the repo.
+
+The human should not have to hand-write the file in Notepad or reconstruct the task contract from chat.
+
+The assistant should:
+
+```text
+1. Identify the intended task.
+2. Decide whether it is substantial enough to need a workorder.
+3. Create a dated file under workorders/.
+4. Include purpose, scope, constraints, checks, expected result, and fallback behavior.
+5. Give the human one exact executor line:
+   Read workorders/<filename>.md and execute it.
+```
+
+### Command: Read workorders/... and execute it
+
+When a human says:
+
+```text
+Read workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md and execute it.
+```
+
+The executor must:
+
+```text
+1. Read the exact committed workorder file.
+2. Inspect recent workorders for overlap or conflict before editing.
+3. Perform only the named scope unless the human explicitly expands it.
+4. Run the required checks, or the closest available checks.
+5. Report exactly what ran.
+6. Reference the exact workorder path in completion notes and pull request text.
+```
+
+### Command: force execute
+
+When a conflict is reported, the human may override it explicitly:
+
+```text
+Force execute workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md despite the reported conflict.
+```
+
+Without that explicit override, the executor should stop rather than guess.
+
+## Break words
+
+A break word, or brake word, is a term that should make humans and AI assistants slow down before designing, coding, or generating files.
+
+A break word does not mean the project is blocked.
+
+It means the term is overloaded enough that a wrong assumption can damage the architecture.
+
+When a break word is ambiguous:
+
+```text
+1. Stop implementation work.
+2. Name the ambiguity.
+3. Explain the distinction in plain language.
+4. Ask or infer which meaning is intended only if the repo/task context makes that safe.
+5. Continue with the smallest doctrine-preserving change.
+```
+
+Do not use break words as a way to stall obvious small edits.
+
+Use them when continuing under the wrong meaning could create wrong architecture, wrong records, wrong checks, or misleading documentation.
+
+## Example break words for an AI project
+
+These words are not banned.
+
+They are caution lights.
+
+```text
+agent
+assistant
+automation
+autonomy
+adapter
+connector
+integration
+source
+consumer
+validate
+verify
+prove
+certify
+truth
+confidence
+score
+trust
+policy
+profile
+configuration
+rule
+evidence
+observation
+finding
+alert
+report
+package
+rollup
+handoff
+workorder
+executor
+full gate
+release
+ship
+production-ready
+safe
+secure
+compliant
+MCP
+tool
+resource
+capability
+mission
+command
+control
+operator
+human approval
+```
+
+## Example break-word distinctions
+
+### Agent / assistant / automation / autonomy
+
+Do not treat these as interchangeable.
+
+An assistant may suggest.
+
+An automation may perform a bounded repeated action.
+
+An agent may act across steps toward a goal.
+
+Autonomy implies a higher-risk ability to choose actions under uncertainty.
+
+If the repo uses these words, define them before building around them.
+
+### Adapter / connector / integration / source / consumer
+
+A connector or adapter is software boundary glue.
+
+A source produces input.
+
+A consumer uses output.
+
+An integration is the broader relationship between systems, people, workflows, data, and trust boundaries.
+
+Do not call everything an adapter just because code touches it.
+
+### Validate / verify / prove / certify / truth
+
+A project may validate file shape, schema fields, references, tests, receipts, or checks.
+
+That does not mean it proved real-world truth.
+
+Good language:
+
+```text
+The checker validated the file shape.
+The workflow verified required references are present.
+The report preserved source and confidence notes.
+A human reviewer judged the evidence sufficient for this use.
+```
+
+Bad language:
+
+```text
+The AI proved this is correct.
+The tool certified the real-world truth.
+The report is the evidence.
+```
+
+### Confidence / score / trust
+
+A confidence value is not truth.
+
+It may be source-declared, computed, inherited, estimated, or policy-specific.
+
+The boundary that produces the value must explain what the value means.
+
+Do not silently turn confidence into certainty.
+
+### Profile / policy / configuration / rule
+
+A profile describes deployment shape or operating mode.
+
+A policy decides or constrains behavior.
+
+A configuration sets values.
+
+A rule expresses a specific condition or decision.
+
+Do not hide policy inside a profile just because it is convenient.
+
+### Evidence / observation / finding / alert / report / package / rollup
+
+Keep these separate when they matter.
+
+Raw evidence is not the same as a normalized observation.
+
+A finding is not the same as an alert.
+
+A report is not the evidence.
+
+A package may contain evidence and explanation, but it should not erase the source distinctions.
+
+A rollup is an attributable summary, not a magic central truth.
+
+### Full gate / release / ship
+
+A full gate is expensive and release-oriented.
+
+Do not invoke it as filler.
+
+Use focused checks for small changes.
+
+Use full gates for release preparation, broad plumbing changes, semantic closure, or stabilization.
+
+## Default A-to-B instruction shape
+
+A good human-to-AI instruction for this kind of repo looks like this:
+
+```text
+Repo:
+  <owner/repo or local path>
+
+Lane:
+  doctrine | proposal concept | implementation | workorder | demo artifact | README/docs | architecture correction
+
+Current base:
+  <file path, pasted file, recent commit, screenshot, or current behavior>
+
+Target:
+  <what B should look like>
+
+Constraints:
+  <what must not be implied, broken, expanded, or silently changed>
+
+Output:
+  <new file, patched file, workorder, implementation prompt, repo note, architecture decision text>
+```
+
+That is the structured “let’s go from A to B” mode.
+
+Not word salad.
+
+Not vibes only.
+
+A to B.
