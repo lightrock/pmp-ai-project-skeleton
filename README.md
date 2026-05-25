@@ -109,7 +109,7 @@ Human documentation still matters, but it becomes a generated view of the archit
 
 We can always ask: “What exactly did you do, and why does it work?” But the core deliverable is that the AI already acted inside the right contracts, schemas, profiles, evidence boundaries, command boundaries, MCP exposure rules, regulatory gates, and audit requirements.
 
-Documentation is yesterday’s control surface. Architecture cognition is the control surface now.
+## Documentation is yesterday’s control surface. Architecture cognition is the control surface now.
 
 That is the role of the Project Manager AI: not to write nice docs for humans, but to keep AI work inside mission architecture while generating whatever human-facing explanation is needed on demand.
 I would not call it “meatware” in public-facing materials unless you want to sound like a cyberpunk villain. Internally, fine. Externally:
