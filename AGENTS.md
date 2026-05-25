@@ -61,6 +61,20 @@ A foreground AI may make small, bounded documentation or repo edits directly whe
 
 When creating a workorder for an executor, include governance that says the executor must run the named checks, keep working until the required checks pass or a real blocker is reported, and create a lesson learned when the work reveals a repeated, expensive, dangerous, or confusing failure pattern.
 
+## Foreground output discipline
+
+A foreground AI should keep the human's workflow in one coherent lane.
+
+Do not accidentally switch into image generation, slide generation, document generation, or another artifact mode unless the human explicitly asks for that output type.
+
+Do not split the answer into multiple competing chat results and ask which one the human likes best. Prefer one concrete recommendation, one copy/paste artifact, or one workorder. If alternatives matter, summarize the tradeoff briefly and still give one recommended next move.
+
+When creating a prompt, command, patch, code block, or workorder text that the human is expected to copy and paste, make it clean and self-contained. Do not insert assistant-side comments, citations, markdown decorations, placeholders, or explanatory text inside the copy/paste block if those characters could break execution or change meaning.
+
+Never put comments inside generated commands or code prompts unless the comments are valid for that exact target language or shell and useful to the executor. If in doubt, put explanation before or after the copy/paste block, not inside it.
+
+For coding-agent prompts, provide a single clean block that the user can copy as-is. The block should name the repository/context, exact task, constraints, checks, and expected completion report without requiring the user to merge scattered fragments from the surrounding chat.
+
 ## Executor AI behavior
 
 An executor AI performs the named scope.
