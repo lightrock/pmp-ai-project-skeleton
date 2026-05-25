@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PMP Example — 1957 Chevy Restoration Project Cognition</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071019;
+      --panel: rgba(10, 22, 34, 0.92);
+      --line: rgba(180, 220, 255, 0.28);
+      --text: #eaf2ff;
+      --muted: #aab8cc;
+      --accent: #7bdfff;
+      --green: #7cffb2;
+      --yellow: #ffd66f;
+      --red: #ff7b7b;
+      --blue: #77b7ff;
+      --purple: #d6a2ff;
+      --steel: #b9c5d6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #263b52 0, var(--bg) 44%, #03070b 100%);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      cursor: grab;
+    }
+
+    canvas:active { cursor: grabbing; }
+
+    .hud {
+      position: fixed;
+      inset: 16px auto 16px 16px;
+      width: min(455px, calc(100vw - 32px));
+      display: grid;
+      gap: 12px;
+      pointer-events: none;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.32);
+      backdrop-filter: blur(12px);
+      padding: 14px 16px;
+      pointer-events: auto;
+    }
+
+    h1 { margin: 0 0 8px; font-size: 18px; line-height: 1.2; }
+    h2 { margin: 0 0 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    p { margin: 0 0 10px; color: var(--muted); line-height: 1.38; font-size: 13px; }
+
+    .warning {
+      border-color: rgba(255, 214, 111, 0.55);
+      background: linear-gradient(180deg, rgba(74, 53, 10, 0.78), rgba(25, 22, 15, 0.86));
+      color: #fff3cf;
+    }
+
+    .warning strong { color: #ffe09a; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .metric {
+      border: 1px solid rgba(180, 220, 255, 0.16);
+      background: rgba(22, 42, 62, 0.78);
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .metric .label { display: block; color: var(--muted); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .metric .value { display: block; margin-top: 3px; font-size: 20px; font-weight: 750; }
+
+    .legend { display: grid; gap: 7px; font-size: 13px; color: var(--muted); }
+    .legend span { display: inline-flex; align-items: center; gap: 8px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 12px currentColor; flex: 0 0 auto; }
+
+    .events { max-height: 26vh; overflow: auto; display: grid; gap: 7px; padding-right: 4px; }
+    .event { border-left: 3px solid rgba(123, 223, 255, 0.65); padding: 7px 8px; background: rgba(255,255,255,0.045); border-radius: 8px; color: #dbeaff; font-size: 12px; line-height: 1.35; }
+
+    .controls {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: min(390px, calc(100vw - 32px));
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.32);
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      pointer-events: auto;
+    }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+    button {
+      border: 1px solid rgba(123, 223, 255, 0.45);
+      border-radius: 999px;
+      background: rgba(123, 223, 255, 0.08);
+      color: var(--text);
+      padding: 7px 10px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover { background: rgba(123, 223, 255, 0.16); }
+
+    @media (max-width: 760px) {
+      body { overflow: auto; }
+      canvas { height: 68vh; }
+      .hud, .controls { position: static; width: auto; margin: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="scene" aria-label="Abstract 3D visualization of a 1957 Chevy restoration project model"></canvas>
+
+  <section class="hud" aria-label="Project cognition panel">
+    <div class="card warning">
+      <strong>Example visualization only.</strong>
+      This is not a real parts database or restoration app. It is a small WebGL sketch showing how architecture cognition turns a hobby project into trackable project state.
+    </div>
+
+    <div class="card">
+      <h1>1957 Chevy Restoration — Project Cognition Map</h1>
+      <p>
+        A hobby mechanic does not just need a checklist. The project has parts, vendors, work sessions, decisions, receipts, blockers, photos, safety notes, and next actions. The point is to keep those meanings separate but connected.
+      </p>
+      <div class="grid">
+        <div class="metric"><span class="label">Project</span><span class="value">'57 Chevy</span></div>
+        <div class="metric"><span class="label">Phase</span><span class="value" id="phaseLabel">Plan</span></div>
+        <div class="metric"><span class="label">Tracked items</span><span class="value" id="nodeCount">0</span></div>
+        <div class="metric"><span class="label">Open links</span><span class="value" id="linkCount">0</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Legend</h2>
+      <div class="legend">
+        <span><i class="dot" style="color: var(--purple); background: var(--purple);"></i>Restoration objective / car</span>
+        <span><i class="dot" style="color: var(--blue); background: var(--blue);"></i>Parts needed or ordered</span>
+        <span><i class="dot" style="color: var(--green); background: var(--green);"></i>Work session / completed task</span>
+        <span><i class="dot" style="color: var(--yellow); background: var(--yellow);"></i>Decision / measurement / safety note</span>
+        <span><i class="dot" style="color: var(--red); background: var(--red);"></i>Blocker / missing part / risk</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Project Event Stream</h2>
+      <div class="events" id="events"></div>
+    </div>
+  </section>
+
+  <aside class="controls">
+    <strong>Controls:</strong> drag to orbit, wheel to zoom. This demo shows semantic project state, not a finished app. A real project could turn these categories into folders, workorders, schemas, checklists, receipts, and parts-order records.
+    <div class="button-row">
+      <button id="resetBtn" type="button">Reset view</button>
+      <button id="pauseBtn" type="button">Pause animation</button>
+    </div>
+  </aside>
+
+  <script>
+    "use strict";
+
+    const canvas = document.getElementById("scene");
+    const gl = canvas.getContext("webgl", { antialias: true, alpha: false });
+    if (!gl) {
+      document.body.innerHTML = "<main style='padding:2rem;font-family:system-ui;color:#111;background:#fff'><h1>WebGL unavailable</h1><p>This example needs a browser with WebGL enabled.</p></main>";
+      throw new Error("WebGL unavailable");
+    }
+
+    const phaseLabel = document.getElementById("phaseLabel");
+    const nodeCount = document.getElementById("nodeCount");
+    const linkCount = document.getElementById("linkCount");
+    const eventsEl = document.getElementById("events");
+    const resetBtn = document.getElementById("resetBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+
+    const vertexSource = `
+      attribute vec3 aPosition;
+      uniform mat4 uMatrix;
+      uniform float uPointSize;
+      void main() {
+        gl_Position = uMatrix * vec4(aPosition, 1.0);
+        gl_PointSize = uPointSize;
+      }
+    `;
+
+    const fragmentSource = `
+      precision mediump float;
+      uniform vec4 uColor;
+      uniform int uRound;
+      void main() {
+        if (uRound == 1) {
+          vec2 p = gl_PointCoord * 2.0 - 1.0;
+          if (dot(p, p) > 1.0) discard;
+        }
+        gl_FragColor = uColor;
+      }
+    `;
+
+    function shader(type, source) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, source);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+      return s;
+    }
+
+    const program = gl.createProgram();
+    gl.attachShader(program, shader(gl.VERTEX_SHADER, vertexSource));
+    gl.attachShader(program, shader(gl.FRAGMENT_SHADER, fragmentSource));
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
+    gl.useProgram(program);
+
+    const aPosition = gl.getAttribLocation(program, "aPosition");
+    const uMatrix = gl.getUniformLocation(program, "uMatrix");
+    const uColor = gl.getUniformLocation(program, "uColor");
+    const uPointSize = gl.getUniformLocation(program, "uPointSize");
+    const uRound = gl.getUniformLocation(program, "uRound");
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.enableVertexAttribArray(aPosition);
+    gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 0, 0);
+
+    const colors = {
+      grid: [0.34, 0.62, 0.92, 0.20],
+      car: [0.84, 0.64, 1.0, 1.0],
+      part: [0.47, 0.72, 1.0, 1.0],
+      work: [0.49, 1.0, 0.70, 1.0],
+      decision: [1.0, 0.84, 0.44, 1.0],
+      blocker: [1.0, 0.48, 0.48, 1.0],
+      link: [0.72, 0.88, 1.0, 0.36],
+      receipt: [1.0, 1.0, 1.0, 0.55],
+      volume: [0.84, 0.64, 1.0, 0.28]
+    };
+
+    const items = [
+      { id: "Car", kind: "car", start: [0, 1.2, 0], target: [0, 1.2, 0], delay: 0.00 },
+      { id: "Brake lines", kind: "part", start: [-4.9, 0, -2.6], target: [-1.6, 0.45, -0.8], delay: 0.08 },
+      { id: "Fuel pump", kind: "part", start: [4.8, 0, -2.7], target: [1.4, 0.48, -0.9], delay: 0.20 },
+      { id: "Vendor order", kind: "part", start: [-5.2, 0, 2.2], target: [-1.7, 0.55, 1.0], delay: 0.32 },
+      { id: "Saturday work", kind: "work", start: [5.0, 0, 2.5], target: [1.6, 0.65, 1.1], delay: 0.44 },
+      { id: "Torque spec", kind: "decision", start: [0.3, 0, 4.9], target: [0.1, 1.25, 1.7], delay: 0.56 },
+      { id: "Rust blocker", kind: "blocker", start: [0, 0, -5.2], target: [0.0, 0.7, -1.8], delay: 0.68 },
+      { id: "Receipts/photos", kind: "decision", start: [-3.9, 0, 4.1], target: [-1.1, 1.1, 1.8], delay: 0.78 }
+    ];
+
+    const links = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[1,4],[2,3],[5,4],[6,1],[7,3]];
+
+    const eventPlan = [
+      [0.04, "Project objective created: restore the '57 Chevy without losing project memory."],
+      [0.16, "Parts are tracked separately from work sessions and decisions."],
+      [0.28, "Vendor order links to parts needed, receipts, and next actions."],
+      [0.42, "Work session connects to parts on hand, blockers, and safety notes."],
+      [0.56, "Torque spec is a decision record, not a random note buried in chat."],
+      [0.70, "Rust blocker stays visible instead of being hidden inside a generic TODO."],
+      [0.84, "Receipts and photos become project memory, not clutter."],
+      [0.95, "Closeout view: what to order, what to do next, and what is blocked remain separate." ]
+    ];
+    const shownEvents = new Set();
+
+    let yaw = -0.75;
+    let pitch = 0.58;
+    let distance = 8.8;
+    let dragging = false;
+    let lastX = 0;
+    let lastY = 0;
+    let paused = false;
+    let startMs = performance.now();
+    let pauseAt = 0;
+
+    function addEvent(text) {
+      const div = document.createElement("div");
+      div.className = "event";
+      div.textContent = text;
+      eventsEl.prepend(div);
+      while (eventsEl.children.length > 8) eventsEl.removeChild(eventsEl.lastChild);
+    }
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.floor(canvas.clientWidth * dpr);
+      const h = Math.floor(canvas.clientHeight * dpr);
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+
+    function perspective(fovy, aspect, near, far) {
+      const f = 1 / Math.tan(fovy / 2);
+      const nf = 1 / (near - far);
+      return [f / aspect,0,0,0, 0,f,0,0, 0,0,(far + near) * nf,-1, 0,0,(2 * far * near) * nf,0];
+    }
+
+    function multiply(a, b) {
+      const out = new Array(16).fill(0);
+      for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) for (let k = 0; k < 4; k++) out[c * 4 + r] += a[k * 4 + r] * b[c * 4 + k];
+      return out;
+    }
+
+    function lookAt(eye, center, up) {
+      const z = normalize(subtract(eye, center));
+      const x = normalize(cross(up, z));
+      const y = cross(z, x);
+      return [x[0],y[0],z[0],0, x[1],y[1],z[1],0, x[2],y[2],z[2],0, -dot(x, eye),-dot(y, eye),-dot(z, eye),1];
+    }
+
+    function subtract(a, b) { return [a[0] - b[0], a[1] - b[1], a[2] - b[2]]; }
+    function cross(a, b) { return [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]]; }
+    function dot(a, b) { return a[0]*b[0] + a[1]*b[1] + a[2]*b[2]; }
+    function normalize(v) { const len = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / len, v[1] / len, v[2] / len]; }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function smooth(t) { return t * t * (3 - 2 * t); }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function currentMatrix() {
+      const aspect = canvas.width / Math.max(canvas.height, 1);
+      const eye = [Math.sin(yaw) * Math.cos(pitch) * distance, Math.sin(pitch) * distance, Math.cos(yaw) * Math.cos(pitch) * distance];
+      return multiply(perspective(Math.PI / 4, aspect, 0.1, 100), lookAt(eye, [0, 0, 0], [0, 1, 0]));
+    }
+
+    function drawVertices(vertices, color, mode, pointSize = 6, round = false) {
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.DYNAMIC_DRAW);
+      gl.uniform4fv(uColor, color);
+      gl.uniform1f(uPointSize, pointSize);
+      gl.uniform1i(uRound, round ? 1 : 0);
+      gl.drawArrays(mode, 0, vertices.length / 3);
+    }
+
+    function itemPosition(item, progress, time) {
+      if (item.kind === "car") return [0, 1.2 + Math.sin(time * 1.7) * 0.04, 0];
+      const t = smooth(clamp((progress - item.delay) / 0.36, 0, 1));
+      const bob = Math.sin(time * 2.0 + item.delay * 15) * 0.06;
+      return [lerp(item.start[0], item.target[0], t), lerp(item.start[1], item.target[1], t) + bob, lerp(item.start[2], item.target[2], t)];
+    }
+
+    function drawGrid() {
+      const v = [];
+      for (let i = -5; i <= 5; i++) { v.push(-5, 0, i, 5, 0, i); v.push(i, 0, -5, i, 0, 5); }
+      drawVertices(v, colors.grid, gl.LINES, 1, false);
+    }
+
+    function drawCarVolume(time) {
+      const s = 1.65 + Math.sin(time * 1.2) * 0.03;
+      const y0 = 0.02, y1 = 1.35;
+      const p = [[-s,y0,-s],[s,y0,-s],[s,y0,s],[-s,y0,s],[-s,y1,-s],[s,y1,-s],[s,y1,s],[-s,y1,s]];
+      const edges = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+      const v = [];
+      for (const e of edges) v.push(...p[e[0]], ...p[e[1]]);
+      drawVertices(v, colors.volume, gl.LINES, 1, false);
+    }
+
+    function drawLinks(progress, time) {
+      const v = [];
+      let count = 0;
+      for (const [a, b] of links) {
+        const ia = items[a], ib = items[b];
+        const ta = ia.kind === "car" ? 1 : clamp((progress - ia.delay) / 0.36, 0, 1);
+        const tb = ib.kind === "car" ? 1 : clamp((progress - ib.delay) / 0.36, 0, 1);
+        if (ta > 0.2 && tb > 0.2) {
+          v.push(...itemPosition(ia, progress, time), ...itemPosition(ib, progress, time));
+          count += 1;
+        }
+      }
+      if (v.length) drawVertices(v, colors.link, gl.LINES, 1, false);
+      linkCount.textContent = String(count);
+    }
+
+    function drawItems(progress, time) {
+      let count = 0;
+      for (const item of items) {
+        const visible = item.kind === "car" || clamp((progress - item.delay) / 0.36, 0, 1) > 0.04;
+        if (!visible) continue;
+        count += 1;
+        const pos = itemPosition(item, progress, time);
+        const size = item.kind === "car" ? 24 : item.kind === "blocker" ? 18 : 15;
+        drawVertices(pos, colors[item.kind], gl.POINTS, size, true);
+      }
+      nodeCount.textContent = String(count);
+    }
+
+    function updateText(progress) {
+      if (progress < 0.22) phaseLabel.textContent = "Plan";
+      else if (progress < 0.50) phaseLabel.textContent = "Order";
+      else if (progress < 0.76) phaseLabel.textContent = "Work";
+      else phaseLabel.textContent = "Closeout";
+
+      for (let i = 0; i < eventPlan.length; i++) {
+        const [threshold, text] = eventPlan[i];
+        if (progress >= threshold && !shownEvents.has(i)) {
+          shownEvents.add(i);
+          addEvent(text);
+        }
+      }
+    }
+
+    function frame(now) {
+      resize();
+      const elapsed = paused ? pauseAt : (now - startMs) / 1000;
+      const cycle = (elapsed % 16) / 16;
+      const progress = cycle < 0.92 ? cycle / 0.92 : 1;
+      if (cycle < 0.03 && shownEvents.size > 0 && !paused) { shownEvents.clear(); eventsEl.innerHTML = ""; }
+
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.enable(gl.DEPTH_TEST);
+      gl.clearColor(0.02, 0.04, 0.07, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+      gl.uniformMatrix4fv(uMatrix, false, new Float32Array(currentMatrix()));
+
+      drawGrid();
+      drawCarVolume(elapsed);
+      drawLinks(progress, elapsed);
+      drawItems(progress, elapsed);
+      updateText(progress);
+
+      requestAnimationFrame(frame);
+    }
+
+    canvas.addEventListener("pointerdown", (ev) => { dragging = true; lastX = ev.clientX; lastY = ev.clientY; canvas.setPointerCapture(ev.pointerId); });
+    canvas.addEventListener("pointermove", (ev) => { if (!dragging) return; const dx = ev.clientX - lastX; const dy = ev.clientY - lastY; lastX = ev.clientX; lastY = ev.clientY; yaw += dx * 0.006; pitch = clamp(pitch + dy * 0.004, -1.18, 1.18); });
+    canvas.addEventListener("pointerup", () => { dragging = false; });
+    canvas.addEventListener("wheel", (ev) => { ev.preventDefault(); distance = clamp(distance + ev.deltaY * 0.008, 4.6, 15); }, { passive: false });
+
+    resetBtn.addEventListener("click", () => { yaw = -0.75; pitch = 0.58; distance = 8.8; });
+    pauseBtn.addEventListener("click", () => {
+      paused = !paused;
+      if (paused) { pauseAt = (performance.now() - startMs) / 1000; pauseBtn.textContent = "Resume animation"; }
+      else { startMs = performance.now() - pauseAt * 1000; pauseBtn.textContent = "Pause animation"; }
+    });
+
+    addEvent("Example loaded: architecture cognition turns a garage restoration into visible project state.");
+    requestAnimationFrame(frame);
+  </script>
+</body>
+</html>
