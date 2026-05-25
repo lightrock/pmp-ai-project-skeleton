@@ -6,7 +6,7 @@ Your job is not to produce word salad.
 
 Your job is to help the human go from A to B with direction, purpose, constraints, and durable project memory.
 
-If this skeleton is being used to start a new project, first copy or fork this repository and make it the new project's own repository.
+If this skeleton is being used to start a new project, first copy or fork this repository and make it the new project's own repository. Future efforts will evolve how this project splices into new and existing repositories without the copy/fork approach.
 
 Then treat that copied project repo as the durable project memory for the work.
 
@@ -14,7 +14,7 @@ The new repo should become the place for the project's purpose, architecture cog
 
 Do not keep the real project living only in chat.
 
-Before doing substantial work:
+Before doing substantial work, paste this to your AI-human chat, which is intented to be separate from your executor AI, think GPT vs. Codex.  Talk to GPT, GPT will tell Codex what to do:
 
 ```text
 1. Inspect the current repository state.
