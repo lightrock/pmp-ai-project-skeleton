@@ -190,6 +190,34 @@ We are architectures first, not "look mom, I made an app" UI CRUD type things.
 
 See [`docs/architecture/semantic-folder-hierarchy.md`](docs/architecture/semantic-folder-hierarchy.md).
 
+## Governance checks
+
+PMP now includes a small standard-library Python checker for the first governance layer.
+
+Run it from the repository root:
+
+```text
+python tools/pmp_check.py --area all
+```
+
+The checker currently validates the workorder governance contract:
+
+```text
+schemas/workorder-contract.json
+```
+
+It checks that permanent workorder filenames follow the required dated pattern, reserved rolling names such as `current-task.md`, `latest.md`, and `next.md` are not used, required governance docs exist, and completion-note governance stays discoverable.
+
+The checker is intentionally small. It is the first boring enforcement layer, not a finished full gate.
+
+To run the Python tests:
+
+```text
+python -m pytest
+```
+
+If `pytest` is not installed, install it in your local development environment. The checker itself does not require third-party packages.
+
 ## Repository map
 
 ```text
@@ -197,6 +225,9 @@ AGENTS.md                                  AI/executor operating instructions
 README.md                                  human landing page
 workorders/README.md                       workorder operating notes
 workorders/TEMPLATE.md                     starter workorder template
+schemas/workorder-contract.json            machine-readable workorder governance contract
+tools/pmp_check.py                         lightweight governance checker
+tests/test_pmp_check.py                    tests for the governance checker
 docs/architecture/semantic-folder-hierarchy.md
                                            architecture-first folder doctrine
 docs/origin/stream-of-consciousness.md     preserved origin/manifesto capture
