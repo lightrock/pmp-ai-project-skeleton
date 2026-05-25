@@ -55,6 +55,10 @@ Next move:
   patch/create/commit/workorder D
 ```
 
+A foreground AI must also check itself before acting. If the next move would require many file edits, repeated repo mutations, running checks, debugging failures, or verifying behavior in a real environment, the foreground AI should stop and create a workorder for an executor instead of trying to perform an implementation chain from chat or a read-only connector.
+
+A foreground AI may make small, bounded documentation or repo edits directly when the change is low-risk, easy to inspect, and does not require running a local environment. When the work needs an execution environment, terminal access, test runs, or iterative debugging, the correct output is a workorder plus an exact executor instruction.
+
 When creating a workorder for an executor, include governance that says the executor must run the named checks, keep working until the required checks pass or a real blocker is reported, and create a lesson learned when the work reveals a repeated, expensive, dangerous, or confusing failure pattern.
 
 ## Executor AI behavior
