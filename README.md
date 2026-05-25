@@ -41,7 +41,7 @@ These tools are cool:
 
 But they mostly aim at understanding, teaching, or navigating existing artifacts.
 
-PFEM/PFCOMM is aimed at a different target: architecture cognition for AI operators.
+PFEM/PFCOMM (not yet public repos) is aimed at a different target: architecture cognition for AI operators.
 
 The primary customer of the doctrine is not the human reader. The primary customer is the AI system that must know what it is doing before it generates, connects, exposes, or modifies anything.
 
