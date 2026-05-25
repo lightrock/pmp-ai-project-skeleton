@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PMP Workorder Governance Contract",
+  "description": "Machine-readable governance contract for PMP workorder files and checker behavior.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "filename_pattern",
+    "reserved_filenames",
+    "required_headings",
+    "completion_note_items"
+  ],
+  "properties": {
+    "filename_pattern": {
+      "type": "string",
+      "description": "Regular expression every permanent workorder filename must match."
+    },
+    "reserved_filenames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Rolling or ambiguous names that destroy history and must not be used."
+    },
+    "required_headings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Markdown headings every workorder must include."
+    },
+    "completion_note_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Items expected in executor completion notes for workorder-driven changes."
+    }
+  },
+  "x-pmp-contract": {
+    "filename_pattern": "^\\d{4}-\\d{2}-\\d{2}-\\d{4}-by-[A-Za-z0-9-]+-[A-Za-z0-9-]+(?:-[A-Za-z0-9-]+)*\\.md$",
+    "reserved_filenames": [
+      "current-task.md",
+      "latest.md",
+      "next.md"
+    ],
+    "required_headings": [
+      "Purpose",
+      "Scope",
+      "Files/areas likely to change",
+      "Out of scope",
+      "Constraints",
+      "Required checks",
+      "Expected result",
+      "Fallback behavior",
+      "Completion note"
+    ],
+    "completion_note_items": [
+      "changed files",
+      "checks run",
+      "checks passed or failed",
+      "checks not run and why",
+      "lessons learned created or not needed",
+      "open questions",
+      "exact workorder path"
+    ]
+  }
+}
