@@ -172,15 +172,13 @@ A mature project may codify lite, focused, and full checks over contracts, schem
 
 ### Lessons learned
 
-A lesson learned is not a diary entry.
+A lesson learned records a failure pattern the repo should remember.
 
-It records a repeated, expensive, confusing, or high-impact failure pattern so future humans and AI systems do not have to rediscover it.
+When a foreground AI creates a workorder, it should automatically tell the coding agent or executor to record a lesson learned if the work reveals a repeated mistake, missing rule, fragile workflow, ambiguous command, misleading document, questionable assumption, or architecture boundary.
 
-When a foreground AI creates a workorder, it should automatically tell the coding agent or executor to record lessons learned when the work reveals a missing rule, repeated mistake, fragile workflow, ambiguous command, misleading document, questionable assumption, or architecture boundary that the repo should remember.
+The human should not have to remember to ask. The AI puts this instruction in the workorder by default.
 
-The human should not have to remember to ask for that every time. The lesson-learned instruction belongs in the workorder governance by default.
-
-Use lessons learned when a workorder reveals that the repo needs a new rule, clearer command, better check, or more explicit architecture boundary.
+Use lessons learned only when the repo needs a new rule, clearer command, better check, or more explicit architecture boundary.
 
 ### Conflict by intent
 
