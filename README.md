@@ -785,3 +785,36 @@ Not word salad.
 Not vibes only.
 
 A to B.
+
+## Why we did this
+
+Two core projects we are working on are highly AI-disciplined complex architectures:
+
+- Polycentric Federated Evidence Mesh
+- Polycentric Federated Command Mesh
+
+We needed a GitHub-repo-based command central for teamwork governing AI-human interaction and project discipline.
+
+Those particular projects may not be suitable for everyone.
+
+But the project management and architecture cognition problem for AI systems is much broader than those projects.
+
+AI-assisted development needs more than prompts, chats, and generated code.
+
+It needs durable project memory.
+
+It needs intent records.
+
+It needs workorders.
+
+It needs break words.
+
+It needs full gates.
+
+It needs a way for humans and AI systems to share enough structure that the AI can act with confidence instead of guessing from vibes.
+
+We believe this kind of project management and architecture cognition is crucial and applicable to most, if not all, AI-assisted development projects.
+
+It has already been highly effective for our own work.
+
+We are sharing this first pass with the community at large so other people can fork it, adapt it, argue with it, simplify it, harden it, and use it as a starting point for their own AI-governed project workflows.
