@@ -300,7 +300,7 @@ Apache-2.0.
 
 You already pasted the startup script into your AI, right?
 
-Before asking the AI to make architecture choices, use the **Foreground AI quickstart** above so it knows to inspect the repo, read `README.md` and `AGENTS.md`, respect current repo state, decide whether the work belongs in foreground chat or a workorder, and keep copy/paste outputs clean.
+When you start a new chat or tab, or before asking the AI to make architecture choices, use the **Foreground AI quickstart** above so it knows to inspect the repo, read `README.md` and `AGENTS.md`, respect current repo state, decide whether the work belongs in foreground chat or a workorder, and keep copy/paste outputs clean.
 
 Then try this:
 
