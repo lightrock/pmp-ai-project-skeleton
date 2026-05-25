@@ -606,13 +606,64 @@ A rollup is an attributable summary, not a magic central truth.
 
 ### Full gate / release / ship
 
-A full gate is expensive and release-oriented.
+A full gate is the full battery of project checks.
 
-Do not invoke it as filler.
+It is not one magic test.
+
+It is the codified set of checks that proves, as far as the repository can prove, that the project still hangs together across its important boundaries.
+
+Depending on the project, a full gate may include checks for:
+
+- contracts;
+- schemas;
+- generated files;
+- workorder references;
+- intent preservation;
+- break-word or terminology rules;
+- links and citations;
+- examples and fixtures;
+- docs that must agree with code;
+- policy/profile separation;
+- security or safety assumptions;
+- release notes and version markers;
+- migration or compatibility expectations.
+
+A good project may codify these as one or more parameterized test runners.
+
+For example:
+
+```text
+check.py --mode lite
+check.py --mode focused --area workorders
+check.py --mode focused --area schemas
+check.py --mode full
+```
+
+Or:
+
+```text
+pmp_check --lite
+pmp_check --full
+pmp_check --release
+```
+
+The names do not matter as much as the discipline.
+
+Lite checks are for fast local feedback.
+
+Focused checks are for the area being changed.
+
+Full gate is for release preparation, semantic closure, broad plumbing changes, stabilization, or anything that could break the project contract across multiple areas.
+
+Do not invoke full gate as filler.
+
+Do not pretend a quick syntax check is a full gate.
+
+Do not make every tiny edit wait on the full battery unless the repo or human explicitly requires it.
 
 Use focused checks for small changes.
 
-Use full gates for release preparation, broad plumbing changes, semantic closure, or stabilization.
+Use the full gate when the project needs high confidence that contracts, schemas, intents, docs, examples, and release assumptions still agree.
 
 ## Pull requests and merge conflicts are resolvable by intent
 
