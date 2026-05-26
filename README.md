@@ -13,8 +13,8 @@ Keep the longer PMP guide nearby while you are setting up the project:
 
 ## Getting started
 
-1. Rename this README around your real project.
-2. Read [`readme_pmp.md`](readme_pmp.md) once and keep it handy.
+1. Redo this README around your real project.
+2. Read [`readme_pmp.md`](readme_pmp.md) at least once and keep it handy.
 3. Read [`AGENTS.md`](AGENTS.md) before asking an AI assistant to change the repo.
 4. Use a workorder for substantial, multi-file, architecture-sensitive, or process-sensitive work.
 5. Run the available checks before treating work as complete.
