@@ -2,6 +2,8 @@
 
 This is what you can do when your AI has architecture cognition.
 
+The runnable demo file in this folder is [`webgl_demo3.html`](webgl_demo3.html).
+
 A human can say something like:
 
 ```text
