@@ -126,6 +126,33 @@ Do not use `current-task.md`, `latest.md`, or `next.md`.
 
 Those names destroy history.
 
+## Playbooks
+
+Playbooks are vendor-independent, repo-owned instructions for reusable workflows.
+
+They are not Claude Skills, Codex features, ChatGPT memory, or vendor-specific prompt packs.
+
+`AGENTS.md` remains the global operating rule set. Workorders remain one-time task contracts. Playbooks are task-specific reusable workflow guidance.
+
+When a task or workorder references a playbook, the executor must read the matching `playbooks/<workflow-name>/PLAYBOOK.md` before doing the task.
+
+A playbook must not override:
+
+```text
+AGENTS.md
+workorders
+required checks
+source authority rules
+human approval gates
+safety constraints
+```
+
+If a playbook conflicts with `AGENTS.md` or the workorder, stop and report the conflict instead of guessing.
+
+Do not run scripts or executable helpers from a playbook unless the workorder or human explicitly authorizes that execution.
+
+Vendor-specific packages may be generated from playbooks later, but the repo playbook remains the source of truth.
+
 ## Start a new tab
 
 When the human says:
