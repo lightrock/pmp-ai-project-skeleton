@@ -29,18 +29,20 @@ Read README.md, examples/README.md, readme_pmp.md, AGENTS.md, and the relevant f
 
 ## Workorder shortcut
 
-For substantial work, ask the foreground AI:
+For substantial work, interact with the foreground AI and develop a task idea and then...
 
 ```text
-Create a bounded workorder for this repository and show me a clean preview first.
+"Create a workorder and also show it to me here"
 
-Task:
-  <describe the exact task>
-
-Put only the workorder body in one clean copy/paste block. Do not put citations, assistant notes, explanations, links, or commentary inside the workorder block. After the preview, ask whether to save it to the repository or revise it.
+You can copy a link to the work order file and tell your executor AI with an environment to perform the workorder.
+Or you can copy paste the text of the work order if you asked your foreground AI to show it to you first.
+If you do that, put only the workorder body in one clean copy/paste block. Do not put citations, assistant notes, explanations, links, or commentary inside the workorder block. After the preview, ask whether to save it to the repository or revise it.
 ```
 
 ## Checks
+
+When all that is done and pushed/merged
+update your local copy and be sure
 
 Run these from the repository root when available:
 
@@ -49,11 +51,12 @@ python tools/pmp_check.py --area all
 python -m pytest
 ```
 
-## About PMP
+## About Doctor Bones
 
-PMP is a repo-native operating discipline for AI-assisted projects. The short version:
+Doctor Bones is an AI Vendor Agnostic repo-native operating discipline for AI-assisted projects. The short version:
 
 ```text
+architecture(s) defined and disciplined for AI
 intent captured
 scope bounded
 constraints preserved
