@@ -36,6 +36,7 @@ Key source docs:
 - [`../../playbooks/mcp-style-agent-design/PLAYBOOK.md`](../../playbooks/mcp-style-agent-design/PLAYBOOK.md)
 - [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
 - [`../../examples/day-in-the-life-12/README.md`](../../examples/day-in-the-life-12/README.md)
+- [`../../examples/day-in-the-life-13/README.md`](../../examples/day-in-the-life-13/README.md)
 
 Authority rule:
 
@@ -67,6 +68,18 @@ mission
 
 Do not collapse recommendation, command, execution, and proof.
 
+## Outside agent pattern distillation
+
+Outside agent demos can be useful, but they should not be copied blindly.
+
+Use the Day 13 pattern when a human brings in an external agent idea, demo, Reddit post, product pitch, or workflow example. The goal is to extract the reusable pattern, classify risk, define authority boundaries, and decide whether the repo should ignore it, watch it, note it, open an issue, create an example, create a playbook, create a workorder, or ask for a human decision.
+
+The governing phrase is:
+
+```text
+Steal the pattern, not the product.
+```
+
 ## Invocable workflows
 
 Invocable workflows are executed intentionally when needed instead of relying on background autonomous agents.
@@ -80,6 +93,7 @@ Examples include:
 - project-knowledge-bank builds
 - playbook packaging
 - MCP-style tool-agent design
+- outside agent pattern distillation
 
 A project-knowledge-bank build is for creating project-specific reusable source material. It should not be populated in the generic template unless the content is explicitly safe for inheritance.
 
@@ -93,3 +107,4 @@ Workflow examples index:
 - [`../../examples/day-in-the-life-10/README.md`](../../examples/day-in-the-life-10/README.md)
 - [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
 - [`../../examples/day-in-the-life-12/README.md`](../../examples/day-in-the-life-12/README.md)
+- [`../../examples/day-in-the-life-13/README.md`](../../examples/day-in-the-life-13/README.md)
