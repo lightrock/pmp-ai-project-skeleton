@@ -269,7 +269,13 @@ A full gate is the full battery of project checks.
 
 It is not one magic test.
 
+Codified checks help coding agents check their own work. A good workorder tells the executor which contracts, schemas, tests, generated-file checks, documentation checks, and policy checks must pass, and the executor should keep working until those checks pass unless there is a real blocker or conflict with repo doctrine.
+
+This is one of the most important PMP habits: turn important architecture rules into checks so coding agents cannot easily do the wrong thing and call it finished.
+
 A mature project may codify lite, focused, and full checks over contracts, schemas, generated files, workorder references, intent preservation, examples, docs, policy boundaries, release assumptions, and related project rules.
+
+You can also tell the foreground AI to create more tests, contracts, schemas, fixtures, or checker rules before handing work to an executor, so the executor has rails instead of vibes.
 
 ### Lessons learned
 
