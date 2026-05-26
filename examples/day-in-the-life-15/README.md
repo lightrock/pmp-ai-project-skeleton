@@ -32,6 +32,8 @@ A reference repo can be:
 
 For example, a repository like `skills-for-humanity` could be loaded as a method-library reference repo. The foreground AI should inspect it, identify portable reasoning procedures, and use them only when the human asks to port, adapt, compare, or load up on that source.
 
+Another example is [`ZhixiangLuo/10xProductivity`](https://github.com/ZhixiangLuo/10xProductivity), which can be loaded as a workflow-pattern reference repo for local-agent-as-universal-client, tool-connection recipes, and cross-tool productivity workflows. The foreground AI should treat it as reference material, not automatic DrBones doctrine.
+
 ## Source roles
 
 Current repo:
@@ -54,6 +56,12 @@ Reference repo example: method library
 - A method-library repo is a source of reusable procedures.
 - It may be useful for extracting named reasoning workflows, routing patterns, checklists, or playbook candidates.
 - It should not be copied wholesale. The foreground AI should classify what is portable, what is vendor-specific, and what belongs only in the reference repo.
+
+Reference repo example: workflow-pattern repo
+
+- A workflow-pattern repo is a source of reusable operating patterns, setup flows, tool-connection recipes, or automation examples.
+- It may be useful for comparing how another project structures agent-readable playbooks, local setup, tool connections, and cross-tool workflows.
+- It should not be treated as permission to copy security assumptions, credentials flows, automation claims, or product positioning into the current repo.
 
 ## Checklist
 
