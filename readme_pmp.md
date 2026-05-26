@@ -101,7 +101,7 @@ durable context
 
 Before asking AI to operate in a domain, give it a workspace where state, rules, evidence, decisions, checks, and outputs can be inspected and corrected.
 
-This is why many useful PMP workflows are invocable workflows, not resident autonomous agents. A human or foreground AI can invoke a vigilance check, contradiction scan, release-surface map, workorder creation, or context-assembly pass when needed.
+This is why many useful PMP workflows are invocable workflows, not resident autonomous agents. A human or foreground AI can invoke a vigilance check, contradiction scan, release-surface map, project-wiki build, workorder creation, or context-assembly pass when needed.
 
 The goal is not to pretend the AI knows everything.
 
@@ -397,6 +397,7 @@ examples/README.md                         example index
 examples/day-in-the-life-6/                release-surface mapping workflow example
 examples/day-in-the-life-7/                invocable vigilance-check workflow example
 examples/day-in-the-life-8/                invocable contradiction-scan workflow example
+examples/day-in-the-life-9/                invocable project-wiki-build workflow example
 examples/webgl-demo-3/                     architecture-cognition WebGL example
 examples/hobbyist-mechanic-57-chevy/       everyday project-cognition WebGL example
 ```
@@ -411,7 +412,7 @@ They are not claims that a finished system exists.
 
 They are communication artifacts showing how project memory, architecture cognition, constraints, roles, intent, and concrete artifacts can work together.
 
-Some examples are invocable workflows rather than always-on agents. A human or foreground AI can run them when needed, such as a release-surface map, vigilance check, or contradiction scan.
+Some examples are invocable workflows rather than always-on agents. A human or foreground AI can run them when needed, such as a release-surface map, vigilance check, contradiction scan, or project-wiki build.
 
 ## Origin trail
 
