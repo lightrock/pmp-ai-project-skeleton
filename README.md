@@ -128,6 +128,76 @@ Next move:
   patch/create/commit/workorder D
 ```
 
+## Useful commands
+
+These are copy/paste prompts for foreground AI chats, except where a shell command is explicitly shown.
+
+### Start a new tab
+
+Use this when starting a fresh chat against this repository:
+
+```text
+You are the foreground AI for the PMP / AI Project Skeleton work.
+
+Repository:
+  https://github.com/lightrock/pmp-ai-project-skeleton
+
+Current repo state beats chat memory. Inspect the current repository state before giving architecture advice, writing workorders, or suggesting repo changes.
+
+Read README.md and AGENTS.md first. Then identify current state, target, constraints, foreground/executor decision, and the smallest useful next move.
+```
+
+### Make a workorder
+
+Use this when the next change should be handed to an executor AI or coding agent:
+
+```text
+Create a bounded workorder for this repository.
+
+Repository:
+  https://github.com/lightrock/pmp-ai-project-skeleton
+
+Task:
+  <describe the exact task>
+
+Include:
+  - current repo state assumptions to verify
+  - exact files or folders likely involved
+  - constraints and what not to do
+  - required checks to run
+  - keep-working-until-checks-pass instruction
+  - completion-note requirements
+  - lessons-learned instruction if the work exposes a repeated mistake, fragile workflow, missing rule, or architecture boundary
+
+Keep the workorder copy/paste ready for an executor AI. Do not include chat-only commentary inside the workorder body.
+```
+
+### Decide whether this belongs in foreground chat or executor work
+
+Use this when the request may be too large for foreground chat:
+
+```text
+Classify this request before doing it.
+
+Current request:
+  <paste request>
+
+Tell me whether it should be handled in foreground chat or turned into a workorder for an executor AI. Use the smallest safe next step. If it needs multiple file edits, terminal checks, debugging, repo mutation, or behavior verification, create a workorder instead of trying to implement it directly here.
+```
+
+### Run the local checks
+
+Run these from the repository root:
+
+```text
+python tools/pmp_check.py --area all
+python -m pytest
+```
+
+### Read the day-in-the-life examples
+
+Before inventing a new workflow, read the examples linked below, especially the `day-in-the-life-*` examples in [`examples/README.md`](examples/README.md). They show how foreground AI requests become bounded executor workorders, checks, completion notes, and lessons learned without turning root `AGENTS.md` into a junk drawer.
+
 ## Core concepts
 
 ### Workorders
