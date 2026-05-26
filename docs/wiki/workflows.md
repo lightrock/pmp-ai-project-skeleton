@@ -37,6 +37,7 @@ Key source docs:
 - [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
 - [`../../examples/day-in-the-life-12/README.md`](../../examples/day-in-the-life-12/README.md)
 - [`../../examples/day-in-the-life-13/README.md`](../../examples/day-in-the-life-13/README.md)
+- [`../../examples/day-in-the-life-14/README.md`](../../examples/day-in-the-life-14/README.md)
 
 Authority rule:
 
@@ -80,6 +81,23 @@ The governing phrase is:
 Steal the pattern, not the product.
 ```
 
+## Release-readiness stabilization
+
+Use the Day 14 pattern after rapid repo growth.
+
+The goal is to stop adding new doctrine and check whether README files, AGENTS.md, examples, playbooks, wiki pages, checks, workorders, release notes, and authority boundaries still agree.
+
+The governing pattern is:
+
+```text
+invent
+→ capture
+→ link
+→ check
+→ stabilize
+→ release
+```
+
 ## Invocable workflows
 
 Invocable workflows are executed intentionally when needed instead of relying on background autonomous agents.
@@ -94,6 +112,7 @@ Examples include:
 - playbook packaging
 - MCP-style tool-agent design
 - outside agent pattern distillation
+- release-readiness stabilization
 
 A project-knowledge-bank build is for creating project-specific reusable source material. It should not be populated in the generic template unless the content is explicitly safe for inheritance.
 
@@ -108,3 +127,4 @@ Workflow examples index:
 - [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
 - [`../../examples/day-in-the-life-12/README.md`](../../examples/day-in-the-life-12/README.md)
 - [`../../examples/day-in-the-life-13/README.md`](../../examples/day-in-the-life-13/README.md)
+- [`../../examples/day-in-the-life-14/README.md`](../../examples/day-in-the-life-14/README.md)
