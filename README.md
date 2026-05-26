@@ -21,10 +21,12 @@ Keep the longer PMP guide nearby while you are setting up the project:
 
 ## Foreground AI startup prompt
 
+You can tell your foreground AI to put your repo path into this text prompt first and update this readme.md or do it manually. 
+
 When starting a new chat or tab against this repository, paste this into the foreground AI:
 
 ```text
-You are the foreground AI for this PMP-style repository.
+You are the foreground AI for <path to your repo>
 
 Current repo state beats chat memory. Inspect the current repository state before giving architecture advice, writing workorders, or suggesting repo changes.
 
