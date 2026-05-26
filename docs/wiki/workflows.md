@@ -24,6 +24,27 @@ Primary guidance:
 - [`../../AGENTS.md`](../../AGENTS.md)
 - [`../../readme_pmp.md`](../../readme_pmp.md)
 
+## Playbooks
+
+Playbooks are vendor-independent, repo-owned instructions for reusable workflows.
+
+Use playbooks when a workflow has become reusable enough that future workorders should reference a stable procedure instead of re-deriving it from examples.
+
+Key source docs:
+
+- [`../../playbooks/README.md`](../../playbooks/README.md)
+- [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
+
+Authority rule:
+
+```text
+AGENTS.md remains global.
+Workorders remain task contracts.
+Playbooks remain reusable task-specific guidance.
+```
+
+If a task or workorder references a playbook, the executor should read the matching `playbooks/<workflow-name>/PLAYBOOK.md` before doing the task.
+
 ## Invocable workflows
 
 Invocable workflows are executed intentionally when needed instead of relying on background autonomous agents.
@@ -35,6 +56,7 @@ Examples include:
 - contradiction scans
 - project-wiki builds
 - project-knowledge-bank builds
+- playbook packaging
 
 A project-knowledge-bank build is for creating project-specific reusable source material. It should not be populated in the generic template unless the content is explicitly safe for inheritance.
 
@@ -46,3 +68,4 @@ Workflow examples index:
 - [`../../examples/day-in-the-life-8/README.md`](../../examples/day-in-the-life-8/README.md)
 - [`../../examples/day-in-the-life-9/README.md`](../../examples/day-in-the-life-9/README.md)
 - [`../../examples/day-in-the-life-10/README.md`](../../examples/day-in-the-life-10/README.md)
+- [`../../examples/day-in-the-life-11/README.md`](../../examples/day-in-the-life-11/README.md)
