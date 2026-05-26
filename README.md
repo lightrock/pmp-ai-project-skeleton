@@ -4,8 +4,6 @@ Doctor Bones is an AI Disciplined Repository Template "skeleton" with well-thoug
 
 Start on the right foot, AI repo discipline, workflow, and healthy governable interaction examples.
 
-Use this file as the human-facing README for your new project. Replace this starter text with your project name, purpose, setup instructions, and current status.
-
 ## Getting started
 
 1. If you copied this template, in a moment you will rewrite this README around your real project.
