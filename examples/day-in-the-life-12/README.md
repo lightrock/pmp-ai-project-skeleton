@@ -4,6 +4,10 @@ This example is not about making a magical autonomous agent.
 
 It is about designing a tool-using AI workflow with clear architecture boundaries before exposing tools, APIs, scripts, or command surfaces to an assistant.
 
+Related companion note:
+
+- [`real-world-mcp-comparison.md`](real-world-mcp-comparison.md) — compares Day 12 against typical working MCP-style examples and explains the difference between capability demos and authority-governed agent design.
+
 The point is simple:
 
 ```text
