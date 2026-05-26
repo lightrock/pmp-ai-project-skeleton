@@ -21,4 +21,5 @@ For this example, the important cognition is:
 - Nodes can carry more than one capability.
 - A role is not necessarily a species of node.
 - A visual demo can be useful without pretending it is a deployed system.
+- This is a way to test how smart your repo is.
 
