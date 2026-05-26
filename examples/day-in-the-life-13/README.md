@@ -108,18 +108,24 @@ human decision
   Needs an architecture/product/legal/security decision before action.
 ```
 
-## Example: trend-to-t-shirt agent
+## Example: trend-to-product concept workflow
 
 External idea:
 
 ```text
-An agent watches trends, generates meme shirt concepts, creates images/mockups, drafts listings, and publishes or queues products.
+An agent watches trends, drafts product concepts, creates mockups, drafts listings, and queues candidates for review.
+```
+
+High-risk variant:
+
+```text
+Apparel, parody, meme merchandise, fandom references, celebrity references, sports/team references, brand-adjacent jokes, political/current-event products, and tragedy-adjacent products require extra review.
 ```
 
 Do not copy it as:
 
 ```text
-Build an auto-publishing shirt spam cannon.
+Build an auto-publishing meme-merch machine.
 ```
 
 Extract the pattern:
@@ -142,16 +148,28 @@ trademark infringement
 celebrity/personality rights
 sports/team/fandom IP
 tragedy exploitation
+reputation risk
 spam marketplace behavior
 false claims
 unapproved ad spend
 platform bans
 ```
 
+Architecture boundary:
+
+```text
+trend signal is not a product idea
+product idea is not an approved design
+approved design is not a listing
+listing is not publication
+publication is not proof of success
+AI recommendation is not business authority
+```
+
 Governed result:
 
 ```text
-Create a trend-to-product workflow with signal capture, concept drafting, IP/platform risk screening, approval gates, publishing records, and performance feedback.
+Create a trend-to-product workflow with signal capture, concept drafting, IP/platform/reputation screening, approval gates, publishing records, and performance feedback.
 ```
 
 The reusable pattern is valuable. The unsafe product-copying behavior is not.
