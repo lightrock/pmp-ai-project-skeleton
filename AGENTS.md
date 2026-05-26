@@ -165,6 +165,27 @@ Never put comments inside generated commands or code prompts unless the comments
 
 For coding-agent prompts, provide a single clean block that the user can copy as-is. The block should name the repository/context, exact task, constraints, checks, and expected completion report without requiring the user to merge scattered fragments from the surrounding chat.
 
+## README and translations
+
+`README.md` is the canonical public template README.
+
+The translated README files under `docs/i18n/` are secondary copies that should stay aligned with `README.md`:
+
+```text
+docs/i18n/README.es.md
+docs/i18n/README.fr.md
+docs/i18n/README.de.md
+docs/i18n/README.pt-BR.md
+```
+
+When changing public-facing README content, update `README.md` first. Then update each translated README so it preserves the same structure, links, warnings, setup steps, startup prompt, workorder shortcut, checks, and About section in the target language.
+
+Do not add new concepts to translated READMEs that are not present in the main README. If a translation needs a clarification, add the clarification to `README.md` first, then translate it.
+
+If the requested change affects only one translation's grammar or wording, do not rewrite the main README or other translations unless the correction exposes a source-template problem.
+
+If a README change is too large to translate confidently in the same pass, mark the translations as needing update and report that clearly instead of pretending they are synchronized.
+
 ## Executor AI behavior
 
 An executor AI performs the named scope.
