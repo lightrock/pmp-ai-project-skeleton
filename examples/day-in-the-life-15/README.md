@@ -31,8 +31,9 @@ The foreground AI should then:
 1. Read current Doctor Bones guidance.
 2. Read docs/internal-reference/pfem-lite.md.
 3. Inspect the target repository files using read-only operations.
-4. Separate source-backed observations from PFEM-lite architectural inference.
-5. Say clearly that this is PFEM-lite, not a full live PFEM repo analysis.
+4. Inspect the target repository's tests/checks enough to understand PFEM-lite boundary coverage.
+5. Separate source-backed observations from PFEM-lite architectural inference.
+6. Say clearly that this is PFEM-lite, not a full live PFEM repo analysis.
 ```
 
 Expected honesty boundary:
@@ -40,6 +41,7 @@ Expected honesty boundary:
 ```text
 I used Doctor Bones' embedded PFEM-lite reference for this analysis.
 I inspected <target repo files actually read>.
+I inspected <target repo test/check files or workflows actually read>.
 I did not inspect the full live PFEM repository.
 I did not write to the external repository.
 ```
@@ -135,6 +137,37 @@ For example, a repository like `skills-for-humanity` could be loaded as a method
 Another example is [`ZhixiangLuo/10xProductivity`](https://github.com/ZhixiangLuo/10xProductivity), which can be loaded as a workflow-pattern reference repo for local-agent-as-universal-client, tool-connection recipes, and cross-tool productivity workflows. The foreground AI should treat it as reference material, not automatic DrBones doctrine.
 
 A premier example of intelligent reference-repo analysis is [`bawbel/scanner`](https://github.com/bawbel/scanner). The foreground AI can inspect that repo against a current-repo architecture lens such as PFEM, compare evidence boundaries, contracts, schemas, testing discipline, runtime/static separation, confidence versus severity, lifecycle handling, and output contracts, then produce respectful GitHub issue suggestions. The point is not to criticize another repo from memory; the point is to read the source, identify what it already does well, name the real architectural gap if one exists, and preserve the boundary between source-backed observation and inference.
+
+## PFEM-lite test/check coverage pass
+
+A PFEM-lite analysis should include a reasonable but not exhaustive look at the target repository's tests and checks.
+
+Inspect likely test/check surfaces such as:
+
+- test directories
+- fixtures
+- schema tests
+- contract tests
+- golden output snapshots
+- validation scripts
+- CI workflows
+- documented gates
+- smoke tests
+
+The goal is not to audit every test. The goal is to answer whether the repo appears to prove the PFEM-lite boundaries it claims or depends on.
+
+For PFEM-lite, look for proof around:
+
+- source input to normalized record
+- normalized record to finding
+- finding to report, package, or rollup
+- confidence preservation
+- provenance preservation
+- tool/MCP read-vs-mutate authority boundaries
+- stale, missing, contradictory, or error input handling
+- public output contracts, schemas, or golden examples
+
+Report which test/check files or workflows were inspected. If test coverage was not inspected or could not be determined from available files, say that clearly.
 
 ## PFEM-lite and PFCOMM-lite fallback
 
@@ -234,6 +267,7 @@ Before writing advice based on reference repositories, the foreground AI should 
 - Which reference files were read?
 - Was `docs/internal-reference/pfem-lite.md` used instead of live PFEM inspection?
 - Was `docs/internal-reference/pfcomm-lite.md` used instead of live PFCOMM inspection?
+- Which target-repo test/check files or workflows were inspected for PFEM-lite boundary coverage, if any?
 - What transfers cleanly into the current repo?
 - What belongs only in a reference repo?
 - What is source-backed?
