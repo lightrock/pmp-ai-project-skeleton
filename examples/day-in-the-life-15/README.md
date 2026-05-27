@@ -16,6 +16,32 @@ Say what you actually read.
 Before you give architecture advice for this repo, load up on the following reference repositories.
 ```
 
+## Simple PFEM-lite invocation
+
+To ask for a lightweight PFEM-style external repository analysis, the human can say:
+
+```text
+Go analyze my other repo <repo URL or owner/name> with PFEM-lite analysis capabilities.
+```
+
+The foreground AI should then:
+
+```text
+1. Read current Doctor Bones guidance.
+2. Read docs/internal-reference/pfem-lite.md.
+3. Inspect the target repository files.
+4. Separate source-backed observations from PFEM-lite architectural inference.
+5. Say clearly that this is PFEM-lite, not a full live PFEM repo analysis.
+```
+
+Expected honesty boundary:
+
+```text
+I used Doctor Bones' embedded PFEM-lite reference for this analysis.
+I inspected <target repo files actually read>.
+I did not inspect the full live PFEM repository.
+```
+
 Example reference repositories:
 
 - `lightrock/PFEM`
