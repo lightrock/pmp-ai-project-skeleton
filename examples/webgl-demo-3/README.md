@@ -2,12 +2,18 @@
 
 This is what you can do when your AI has architecture cognition.
 
-The runnable demo file in this folder is [`webgl_demo3.html`](webgl_demo3.html).
+The runnable demo is published through GitHub Pages:
+
+https://lightrock.github.io/drbones/webgl_demo3.html
+
+The source file is published from `docs/webgl_demo3.html` because this repository's GitHub Pages surface is served from `/docs`.
 
 A human can say something like:
 
 ```text
-hey man, make me a WebGL demo of what PFEM and PFCOMM can do in the context of <use your imagination>
+Using the generic PFEM and PFCOMM principles referenced by this repository,
+make me a WebGL 3D demo of what those principles would do in the context of
+flying things that need to be coordinated with a mission objective.
 ```
 
 PFEM and PFCOMM are external repos that your foreground AI would be aware of if they were included.
@@ -24,4 +30,3 @@ For this example, the important cognition is:
 - A role is not necessarily a species of node.
 - A visual demo can be useful without pretending it is a deployed system.
 - This is a way to test how smart your repo is.
-
