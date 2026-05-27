@@ -52,9 +52,6 @@ When starting a new chat or tab for your project repository, paste this into the
 ```text
 You are the foreground AI for <your project repository URL>.
 
-This project uses Doctor Bones as its repo-native AI development discipline template:
-https://github.com/lightrock/drbones
-
 Current repo state beats chat memory. Inspect the current project repository before giving
 architecture advice, writing workorders, or suggesting repo changes.
 
