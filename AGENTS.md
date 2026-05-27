@@ -277,9 +277,10 @@ docs/i18n/README.es.md
 docs/i18n/README.fr.md
 docs/i18n/README.de.md
 docs/i18n/README.pt-BR.md
+docs/i18n/README.hi.md
 ```
 
-When changing public-facing README content, update `README.md` first. Then update each translated README so it preserves the same structure, links, warnings, setup steps, startup prompt, workorder shortcut, checks, and About section in the target language.
+When changing public-facing README content, update `README.md` first. Then update each translated README so it preserves the same structure, links, warnings, setup steps, startup prompt, workorder shortcut, checks, and remaining public sections in the target language.
 
 Do not add new concepts to translated READMEs that are not present in the main README. If a translation needs a clarification, add the clarification to `README.md` first, then translate it.
 
@@ -314,6 +315,16 @@ If the work exposes a repeated mistake, missing rule, fragile workflow, ambiguou
 
 Use a workorder when the task is substantial, process-sensitive, intended for another executor, likely to affect future contributor behavior, or needs durable intent before implementation.
 
+Before creating any workorder, read and follow the current workorder contract and template:
+
+```text
+schemas/workorder-contract.json
+workorders/TEMPLATE.md
+workorders/README.md
+```
+
+The schema contract is the source of truth for required headings. Every permanent workorder must include each required heading exactly as named by `schemas/workorder-contract.json`. Do not invent substitute headings such as `Task`, `Required changes`, `Checks`, or `Completion report` when the contract requires `Purpose`, `Scope`, `Required checks`, or `Completion note`.
+
 When the human says:
 
 ```text
@@ -337,6 +348,8 @@ workorders/YYYY-MM-DD-HHMM-by-githubusername-short-task-name.md
 Do not use `current-task.md`, `latest.md`, or `next.md`.
 
 Those names destroy history.
+
+After drafting a workorder, manually compare its headings against the contract before committing. If local checks are available, run `python tools/pmp_check.py --area all`. If local checks are not available, say that and still report the manual contract check.
 
 ## Playbooks
 
