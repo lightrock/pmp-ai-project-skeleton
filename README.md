@@ -8,7 +8,7 @@ It helps you keep project memory inside the repo instead of trapped in chat. It 
 
 The idea is, whenever you start a new project, start with a Doctor Bones.
 
-You do not necessarily have to check out the template copy of your repository to use it. Doctor Bones carries its cognitionkitecture in the repository itself. If you follow the startup instructions below, your foreground AI should have enough project smarts to reason from the repo guidance, examples, playbooks, checks, and handoff rules.
+You do not necessarily have to fetch your copy of this template to your local PC or agent environment to use it. Doctor Bones carries its cognitionkitecture in the repository itself. If you follow the startup instructions below, your foreground AI should have enough project smarts to reason from the repo guidance, examples, playbooks, checks, and handoff rules.
 
 By default, nothing has to "run" anywhere in the traditional way, and you do not necessarily have to invoke an executor such as Codex. Point your foreground AI at the appropriate Doctor Bones-based repository instance first. Use an executor only when the task needs file edits, a runtime environment, checks, commits, or pull requests.
 
