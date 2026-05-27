@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor Bones — Pattern Fit</title>
+  <style>
+    :root{--bg:#f4f1ea;--panel:#fffaf0;--ink:#1f2933;--muted:#5f6c7b;--line:#d8cdbb;--accent:#7c3aed;--shadow:0 18px 45px rgba(31,41,51,.12)}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top left,#ede9fe 0,transparent 34%),var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.56}
+    main{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:34px 0 70px}.topbar{display:flex;justify-content:space-between;gap:16px;margin-bottom:18px;color:var(--muted)}.topbar a{color:var(--muted);font-weight:700;text-decoration:none}
+    .hero,.section,.note{background:rgba(255,250,240,.94);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.hero{padding:clamp(28px,5vw,56px)}.section,.note{margin-top:20px;padding:clamp(22px,4vw,36px)}
+    .eyebrow{display:inline-flex;margin:0 0 18px;padding:7px 12px;border:1px solid #c4b5fd;border-radius:999px;color:#4c1d95;background:#f5f3ff;font-size:.9rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+    h1{margin:0;max-width:920px;font-size:clamp(2.25rem,6vw,5rem);line-height:.98;letter-spacing:-.06em}h2{margin:0 0 12px;font-size:clamp(1.45rem,3vw,2.2rem);letter-spacing:-.04em}h3{margin:0 0 8px;font-size:1.08rem}.lede{max-width:900px;margin:24px 0 0;color:var(--muted);font-size:clamp(1.08rem,2vw,1.3rem)}p{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:22px;padding:20px;background:white;box-shadow:0 8px 20px rgba(31,41,51,.06)}.badge{display:inline-flex;margin-bottom:10px;padding:4px 9px;border-radius:999px;font-size:.78rem;font-weight:800;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}.badge.blue{background:#eff6ff;color:#1e3a8a;border-color:#bfdbfe}.badge.amber{background:#fffbeb;color:#92400e;border-color:#fde68a}
+    pre{margin:16px 0 0;overflow-x:auto;padding:18px;border-radius:16px;background:#0f172a;color:#f8fafc;font-size:.92rem}code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace}.note{border-color:#fde68a;background:#fffbeb}.note strong{color:#92400e}footer{margin-top:28px;color:var(--muted);font-size:.95rem}@media(max-width:880px){main{width:min(100% - 20px,1120px);padding-top:18px}.grid,.grid.three{grid-template-columns:1fr}.hero,.section,.note{border-radius:20px}.topbar{flex-direction:column}}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="topbar"><a href="./">← Doctor Bones Pages</a><a href="https://github.com/lightrock/drbones">GitHub repository</a></nav>
+  <section class="hero">
+    <p class="eyebrow">Pattern fit / embedded reference lenses</p>
+    <h1>Doctor Bones carries enough brain matter to reason with architecture patterns.</h1>
+    <p class="lede">A Doctor Bones-based repository is not just a place to store code. It is a place to store project cognition: what the work means, what boundaries matter, which examples to read, what checks prove progress, and which architecture patterns can guide the next move.</p>
+  </section>
+
+  <section class="section">
+    <h2>What pattern fit means here</h2>
+    <p>Doctor Bones can carry lightweight embedded reference lenses. They do not replace full source repositories, but they give a foreground AI enough structure to do a useful first-pass comparison when the human asks a simple question.</p>
+    <pre><code>Go analyze my other repo &lt;repo URL&gt; with PFEM-lite analysis capabilities.
+
+Go analyze my other repo &lt;repo URL&gt; with PFCOMM-lite analysis capabilities.
+
+Use both lenses to explain this project's evidence-to-coordination boundary.</code></pre>
+  </section>
+
+  <section class="section">
+    <h2>Two useful lenses</h2>
+    <div class="grid">
+      <article class="card"><span class="badge">PFEM-lite</span><h3>Evidence governance</h3><p>PFEM-lite helps the AI ask what counts as evidence, where it came from, how confidence and provenance are preserved, and whether reports or summaries have a durable proof path.</p><pre><code>raw evidence
+normalized observation
+finding
+alert
+evidence package
+report
+rollup
+provenance
+confidence</code></pre></article>
+      <article class="card"><span class="badge blue">PFCOMM-lite</span><h3>Coordination and accountability</h3><p>PFCOMM-lite helps the AI ask what is being requested, who has authority, what was assigned, what status came back, and how decisions and after-action accountability are recorded.</p><pre><code>intent
+authority context
+tasking
+assignment
+resource
+status
+receipt
+decision log
+after-action record</code></pre></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why it matters</h2>
+    <div class="grid three">
+      <article class="card"><span class="badge amber">Plain prompt</span><h3>The human asks normally</h3><p>The human should not have to hand-write every architectural checklist. A good repo lets the human ask for a goal in normal language.</p></article>
+      <article class="card"><span class="badge">Repo cognition</span><h3>The repo narrows the lane</h3><p>AGENTS.md, examples, workorders, checks, and embedded reference lenses tell the foreground AI what good work means here.</p></article>
+      <article class="card"><span class="badge blue">Bounded execution</span><h3>The executor gets a contract</h3><p>If files need to change, the foreground AI creates a bounded workorder with scope, constraints, checks, and completion rules.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>A Miller-flavored reading</h2>
+    <p>James Grier Miller's living-systems vocabulary is useful historical inspiration for thinking about systems, flows, memory, boundaries, and adaptation. Doctor Bones does not need to become a Miller project to borrow the better instinct: a working system should preserve its own memory, signal paths, and adaptation rules.</p>
+    <p>In Doctor Bones terms, the repository should help future AI sessions recognize the project organism before operating on it.</p>
+  </section>
+
+  <section class="note"><strong>Boundary:</strong> PFEM-lite and PFCOMM-lite are lightweight embedded references. They are enough for first-pass pattern analysis, not a substitute for inspecting the full live reference repositories when the human asks for a full comparison. External repositories stay read-only unless the human explicitly authorizes otherwise.</section>
+  <footer>Doctor Bones public Pages demo. Use the public source repository as the template; create project workorders in your copied Doctor Bones-based project repository.</footer>
+</main>
+</body>
+</html>
