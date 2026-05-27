@@ -45,12 +45,12 @@ The repo is the memory and discipline layer between them.
 
 ## Foreground AI startup prompt
 
-Replace `<path to your repo>` with your real repository path. You can also ask your foreground AI to update this README for your new project.
+This prompt is currently set up for the Doctor Bones repository. If you copy this template into a new project, change the repository URL in the prompt to your new repository.
 
 When starting a new chat or tab against this repository, paste this into the foreground AI:
 
 ```text
-You are the foreground AI for <path to your repo>
+You are the foreground AI for https://github.com/lightrock/drbones
 
 Current repo state beats chat memory. Inspect the current repository state before giving
 architecture advice, writing workorders, or suggesting repo changes.
