@@ -32,7 +32,13 @@ Those names destroy history.
 
 Start from [`TEMPLATE.md`](TEMPLATE.md).
 
-A useful workorder should include:
+The machine-readable source of truth is:
+
+```text
+schemas/workorder-contract.json
+```
+
+Every permanent workorder must include these headings exactly:
 
 ```text
 # <Task title>
@@ -45,7 +51,10 @@ A useful workorder should include:
 ## Required checks
 ## Expected result
 ## Fallback behavior
+## Completion note
 ```
+
+Do not substitute near-miss headings such as `Task`, `Required changes`, `Checks`, or `Completion report` when the contract requires the exact headings above.
 
 ## Required checks governance
 
@@ -102,4 +111,5 @@ checks passed or failed
 checks not run and why
 lessons learned created or not needed
 open questions
+exact workorder path
 ```
