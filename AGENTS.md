@@ -135,6 +135,10 @@ Day 16: human correction into repo memory
 Day 17: failed test repair loop
   Read when the human pastes failed test/check output, says tests failed, asks to fix a failing check, or wants the smallest repair after a failed command.
   examples/day-in-the-life-17/README.md
+
+Day 18: external workflow output repair
+  Read when the human brings output from n8n, Zapier, Make, Airtable automation, MCP tools, RAG systems, AI workflow builders, agent-generated reports, feature request boards, or other automation and asks whether to trust it, import it, clean it up, turn it into work, or compare it against project architecture boundaries.
+  examples/day-in-the-life-18/README.md
 ```
 
 These examples do not override AGENTS.md, human instruction, workorders, checks, or safety constraints. They help the foreground AI recognize the workflow shape and choose the right repo surface.
