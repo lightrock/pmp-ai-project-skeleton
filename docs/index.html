@@ -384,6 +384,28 @@ of flying things that need to be coordinated with a mission objective.</code></p
     </section>
 
     <section class="section">
+      <h2>What exactly are PFEM-lite and PFCOMM-lite?</h2>
+      <p>
+        PFEM-lite and PFCOMM-lite are small embedded reference snapshots inside Doctor Bones. They give the AI enough vocabulary and boundary discipline to do useful first-pass analysis when the full PFEM or PFCOMM repositories are not being inspected.
+      </p>
+      <div class="grid two" aria-label="PFEM-lite and PFCOMM-lite explanations">
+        <article class="card">
+          <span class="file-name">docs/internal-reference/pfem-lite.md</span>
+          <h3>PFEM-lite</h3>
+          <p>A lightweight evidence-governance lens: raw evidence, normalized observations, findings, alerts, evidence packages, reports, rollups, provenance, confidence, and proof should not be collapsed.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">docs/internal-reference/pfcomm-lite.md</span>
+          <h3>PFCOMM-lite</h3>
+          <p>A lightweight command-and-coordination lens: command intent, authority context, tasking, assignments, resources, status, receipts, messages, decisions, after-action records, and reports should not be collapsed.</p>
+        </article>
+      </div>
+      <p style="margin-top: 14px;">
+        They are not replacements for the real PFEM and PFCOMM architectures. They are the repo-smarts Doctor Bones carries by default so an AI can start in the right lane before you decide whether full architecture inspection is needed.
+      </p>
+    </section>
+
+    <section class="section">
       <h2>You still have to think</h2>
       <p>
         Doctor Bones is not here to do all your thinking for you or to automate your intelligence.
