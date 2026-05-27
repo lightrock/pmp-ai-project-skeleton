@@ -49,6 +49,14 @@ The repo is the memory and discipline layer between them.
 5. Use a workorder for substantial, multi-file, architecture-sensitive, or process-sensitive work.
 6. Run the available checks before treating work as complete.
 
+## Process boundary
+
+Do not create your project workorders in the public Doctor Bones source repository unless you are intentionally contributing to Doctor Bones itself.
+
+For your own project, first create or use your own repository from this template. Then point your foreground AI at that project repository URL and create workorders there.
+
+Use `lightrock/drbones` as the source template, reference implementation, and upstream project. Use your copied Doctor Bones-based repository as the place where your project memory, workorders, lessons learned, and project-specific changes live.
+
 ## Foreground AI startup prompt
 
 This prompt is for a repository created from the Doctor Bones template. After copying this template, replace `<your project repository URL>` with your own project repository URL.
