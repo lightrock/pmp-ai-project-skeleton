@@ -7,6 +7,8 @@ Sie hilft dabei, Projekterinnerung im Repository zu halten, statt sie im Chat ei
 Du musst nicht zwingend die Vorlagenkopie deines Repositorys lokal auschecken, um es zu nutzen. Doctor Bones trägt seine Cognitionkitecture im Repository selbst. Wenn du die Startanweisungen unten befolgst, sollte deine Foreground-KI genug Projektwissen haben, um mit Repo-Leitlinien, Beispielen, Playbooks, Checks und Übergaberegeln zu arbeiten.
 
 Standardmäßig muss nichts im traditionellen Sinn irgendwo “laufen”, und du musst nicht zwingend einen Executor wie Codex aufrufen. Richte deine Foreground-KI zuerst auf die passende Doctor-Bones-basierte Repository-Instanz aus. Nutze einen Executor nur dann, wenn die Aufgabe Dateiänderungen, eine Laufzeitumgebung, Checks, Commits oder Pull Requests braucht.
+Die Idee ist: Jedes Mal, wenn du ein neues Projekt startest, starte mit einem Doctor Bones.
+
 
 ## Sprachen
 
@@ -47,6 +49,14 @@ Das Repository ist die Gedächtnis- und Disziplinschicht zwischen beiden.
 5. Nutze eine Workorder für umfangreiche, mehrdateiige, architektursensible oder prozesssensible Arbeit.
 6. Führe die verfügbaren Checks aus, bevor du Arbeit als abgeschlossen behandelst.
 
+## Prozessgrenze
+
+Erstelle deine Projekt-Workorders nicht im öffentlichen Doctor-Bones-Quell-Repository, außer du trägst absichtlich zu Doctor Bones selbst bei.
+
+Für dein eigenes Projekt erstelle oder nutze zuerst dein eigenes Repository aus dieser Vorlage. Richte dann deine Foreground-KI auf die URL dieses Projekt-Repositorys aus und erstelle dort die Workorders.
+
+Nutze `lightrock/drbones` als Quellvorlage, Referenzimplementierung und Upstream-Projekt. Nutze dein kopiertes Doctor-Bones-basiertes Repository als Ort für Projektspeicher, Workorders, Lessons Learned und projektspezifische Änderungen.
+
 ## Start-Prompt für die Foreground-KI
 
 Dieser Prompt ist für ein Repository gedacht, das aus der Doctor-Bones-Vorlage erstellt wurde. Ersetze nach dem Kopieren dieser Vorlage `<your project repository URL>` durch die URL deines eigenen Projekt-Repositorys.
@@ -86,20 +96,3 @@ python -m pytest
 ```
 
 Wenn ein Check fehlschlägt, füge die exakte Befehlsausgabe in die Foreground-KI ein und bitte um die kleinste sichere Korrektur.
-
-## Über Doctor Bones
-
-Doctor Bones ist eine KI-anbieterunabhängige Arbeitsdisziplin für KI-unterstützte Projekte.
-
-Die Kurzfassung:
-
-```text
-Absicht erfasst
-Umfang begrenzt
-Einschränkungen bewahrt
-Executor instruiert
-Checks erforderlich
-Abschluss an ursprüngliche Absicht zurückgebunden
-```
-
-Die vollständige Erklärung steht in [`readme_pmp.md`](../../readme_pmp.md).

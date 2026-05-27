@@ -7,6 +7,8 @@ Ele ajuda a manter a memória do projeto dentro do repositório, em vez de presa
 Você não precisa necessariamente fazer checkout local da cópia de template do seu repositório para usar isso. O Doctor Bones carrega sua cognitionkitecture no próprio repositório. Se você seguir as instruções de inicialização abaixo, sua IA de primeiro plano deve ter contexto suficiente do projeto para raciocinar a partir da orientação do repositório, dos exemplos, dos playbooks, das verificações e das regras de handoff.
 
 Por padrão, nada precisa “rodar” em lugar nenhum no sentido tradicional, e você não precisa necessariamente invocar um executor como o Codex. Aponte primeiro sua IA de primeiro plano para a instância apropriada de repositório baseada em Doctor Bones. Use um executor apenas quando a tarefa exigir edições de arquivo, ambiente de execução, verificações, commits ou pull requests.
+A ideia é: sempre que você começar um novo projeto, comece com um Doctor Bones.
+
 
 ## Idiomas
 
@@ -47,6 +49,14 @@ O repositório é a camada de memória e disciplina entre os dois.
 5. Use uma ordem de trabalho para trabalhos substanciais, com vários arquivos, sensíveis à arquitetura ou sensíveis ao processo.
 6. Execute as verificações disponíveis antes de tratar o trabalho como concluído.
 
+## Limite de processo
+
+Não crie as ordens de trabalho do seu projeto no repositório-fonte público do Doctor Bones, a menos que você esteja contribuindo intencionalmente com o próprio Doctor Bones.
+
+Para o seu próprio projeto, primeiro crie ou use seu próprio repositório a partir deste modelo. Depois, aponte sua IA de primeiro plano para a URL desse repositório de projeto e crie as ordens de trabalho lá.
+
+Use `lightrock/drbones` como modelo-fonte, implementação de referência e projeto upstream. Use seu repositório copiado baseado em Doctor Bones como o local onde ficam a memória do projeto, as ordens de trabalho, as lições aprendidas e as mudanças específicas do projeto.
+
 ## Prompt de início para a IA de primeiro plano
 
 Este prompt é para um repositório criado a partir do modelo Doctor Bones. Depois de copiar este modelo, substitua `<your project repository URL>` pela URL do seu próprio repositório de projeto.
@@ -86,20 +96,3 @@ python -m pytest
 ```
 
 Se uma verificação falhar, cole a saída exata do comando na IA de primeiro plano e peça a menor correção segura.
-
-## Sobre Doctor Bones
-
-Doctor Bones é uma disciplina operacional agnóstica em relação a fornecedor de IA para projetos assistidos por IA.
-
-A versão curta:
-
-```text
-intenção capturada
-escopo delimitado
-restrições preservadas
-executor instruído
-verificações exigidas
-conclusão conectada à intenção original
-```
-
-A explicação completa está em [`readme_pmp.md`](../../readme_pmp.md).

@@ -7,6 +7,8 @@ Ayuda a mantener la memoria del proyecto dentro del repositorio, en lugar de atr
 No necesariamente tienes que clonar en local la copia de plantilla de tu repositorio para usarlo. Doctor Bones lleva su arquitectura de cognición dentro del propio repositorio. Si sigues las instrucciones de inicio de abajo, tu IA de primer plano debería tener suficiente contexto del proyecto para razonar con la guía del repo, los ejemplos, los playbooks, las comprobaciones y las reglas de traspaso.
 
 De forma predeterminada, no hace falta que nada “se ejecute” en algún lugar de la manera tradicional, y no necesariamente tienes que invocar a un ejecutor como Codex. Primero apunta tu IA de primer plano a la instancia adecuada de repositorio basada en Doctor Bones. Usa un ejecutor solo cuando la tarea necesite ediciones de archivos, un entorno de ejecución, comprobaciones, commits o pull requests.
+La idea es que, cada vez que inicies un proyecto nuevo, comiences con un Doctor Bones.
+
 
 ## Idiomas
 
@@ -47,6 +49,14 @@ El repositorio es la capa de memoria y disciplina entre ambos.
 5. Usa una orden de trabajo para trabajos sustanciales, de múltiples archivos, sensibles a la arquitectura o sensibles al proceso.
 6. Ejecuta las comprobaciones disponibles antes de tratar el trabajo como terminado.
 
+## Límite del proceso
+
+No crees órdenes de trabajo de tu proyecto en el repositorio público fuente de Doctor Bones, salvo que estés contribuyendo intencionalmente a Doctor Bones.
+
+Para tu propio proyecto, primero crea o usa tu propio repositorio a partir de esta plantilla. Luego apunta tu IA de primer plano a la URL de ese repositorio de proyecto y crea allí las órdenes de trabajo.
+
+Usa `lightrock/drbones` como plantilla fuente, implementación de referencia y proyecto upstream. Usa tu repositorio copiado basado en Doctor Bones como el lugar donde viven la memoria de tu proyecto, las órdenes de trabajo, las lecciones aprendidas y los cambios específicos de tu proyecto.
+
 ## Prompt de inicio para la IA de primer plano
 
 Este prompt es para un repositorio creado a partir de la plantilla Doctor Bones. Después de copiar esta plantilla, reemplaza `<URL del repositorio de tu proyecto>` con la URL de tu propio repositorio de proyecto.
@@ -86,20 +96,3 @@ python -m pytest
 ```
 
 Si una comprobación falla, pega la salida exacta del comando en la IA de primer plano y pide la corrección segura más pequeña.
-
-## Acerca de Doctor Bones
-
-Doctor Bones es una disciplina operativa agnóstica respecto al proveedor de IA para proyectos asistidos por IA.
-
-La versión corta:
-
-```text
-intención capturada
-alcance acotado
-restricciones preservadas
-ejecutor instruido
-comprobaciones requeridas
-cierre conectado con la intención original
-```
-
-La explicación completa está en [`readme_pmp.md`](../../readme_pmp.md).
