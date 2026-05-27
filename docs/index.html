@@ -12,7 +12,6 @@
       --muted: #5f6c7b;
       --line: #d8cdbb;
       --accent: #3f3f46;
-      --accent-2: #0f766e;
       --soft: #f1f5f9;
       --shadow: 0 14px 36px rgba(31, 41, 51, 0.10);
     }
@@ -128,6 +127,10 @@
       margin-top: 18px;
     }
 
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .card {
       background: white;
       border: 1px solid var(--line);
@@ -136,6 +139,18 @@
     }
 
     .card p { color: var(--muted); }
+
+    .file-name {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 7px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
 
     .steps {
       display: grid;
@@ -191,7 +206,7 @@
 
     @media (max-width: 820px) {
       main { width: min(100% - 20px, 1040px); padding-top: 20px; }
-      .grid { grid-template-columns: 1fr; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
       .hero, .section { border-radius: 18px; }
       .step { grid-template-columns: 1fr; }
     }
@@ -209,7 +224,7 @@
       </p>
       <div class="actions">
         <a class="button" href="https://github.com/lightrock/drbones">Open the GitHub repository</a>
-        <a class="button secondary" href="miller-pattern-fit.html">View the pattern-fit example</a>
+        <a class="button secondary" href="https://github.com/lightrock/drbones/blob/main/README.md">Read the README</a>
       </div>
     </section>
 
@@ -227,6 +242,45 @@
         <article class="card">
           <h3>Workorders and checks</h3>
           <p>A plain contract format for bounded file-changing work, plus checks that help keep repo guidance and examples coherent.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What the repo actually uses</h2>
+      <p>
+        The starting material is ordinary GitHub-native project material. There is no special platform to install before the repo can begin teaching the AI how to work.
+      </p>
+      <div class="grid two" aria-label="Doctor Bones repo pieces">
+        <article class="card">
+          <span class="file-name">README.md</span>
+          <h3>Human-facing orientation</h3>
+          <p>The plain starting explanation: what this repo is, how to begin, and where a project-specific copy should put its own memory.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">AGENTS.md</span>
+          <h3>AI operating rules</h3>
+          <p>Standing instructions for AI assistants: inspect repo state, respect the source/project boundary, and choose advice, prompt, edit, or workorder deliberately.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">examples/</span>
+          <h3>Prompt workflow examples</h3>
+          <p>Concrete day-in-the-life patterns that show how a foreground AI should behave in recurring project situations.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">workorders/</span>
+          <h3>Bounded executor tasks</h3>
+          <p>Workorders describe file-changing work with purpose, scope, constraints, required checks, fallback behavior, and completion notes.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">schemas/</span>
+          <h3>Contract shape</h3>
+          <p>The workorder contract gives future AI sessions a concrete structure to validate against instead of relying on vibes.</p>
+        </article>
+        <article class="card">
+          <span class="file-name">tools/</span>
+          <h3>Repo checks</h3>
+          <p>Check scripts help catch drift between guidance, examples, schemas, and the discipline the repo claims to teach.</p>
         </article>
       </div>
     </section>
