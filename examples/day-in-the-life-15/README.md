@@ -7,6 +7,7 @@ The point is simple:
 ```text
 Load relevant reference repositories on purpose.
 Keep the current repo boundary clear.
+Say what you actually read.
 ```
 
 ## Human request
@@ -37,6 +38,37 @@ Another example is [`ZhixiangLuo/10xProductivity`](https://github.com/ZhixiangLu
 
 A premier example of intelligent reference-repo analysis is [`bawbel/scanner`](https://github.com/bawbel/scanner). The foreground AI can inspect that repo against a current-repo architecture lens such as PFEM, compare evidence boundaries, contracts, schemas, testing discipline, runtime/static separation, confidence versus severity, lifecycle handling, and output contracts, then produce respectful GitHub issue suggestions. The point is not to criticize another repo from memory; the point is to read the source, identify what it already does well, name the real architectural gap if one exists, and preserve the boundary between source-backed observation and inference.
 
+## PFEM-lite fallback
+
+Doctor Bones carries a small embedded PFEM reference at:
+
+```text
+docs/internal-reference/pfem-lite.md
+```
+
+Use PFEM-lite when the human asks for a PFEM-style first-pass analysis and the live `lightrock/PFEM` repo is not being inspected.
+
+PFEM-lite is enough to support a useful analysis of:
+
+- evidence boundaries
+- provenance
+- normalization
+- confidence
+- MCP/tool authority boundaries
+- findings, reports, packages, rollups, and proof discipline
+- workorders and checks as durable project discipline
+
+Do not overclaim it.
+
+Use this wording when appropriate:
+
+```text
+I used Doctor Bones' embedded PFEM-lite reference for this analysis.
+I did not inspect the full live PFEM repository.
+```
+
+If the human asks for a full PFEM comparison, inspect current `lightrock/PFEM` files and report which PFEM files were actually read.
+
 ## Source roles
 
 Current repo:
@@ -48,6 +80,7 @@ Reference repo example: PFEM
 
 - PFEM is an evidence architecture source.
 - It may be useful for evidence boundaries, provenance, normalization, findings, reports, packages, rollups, and proof discipline.
+- The embedded PFEM-lite reference is a first-pass lens, not a substitute for a full live PFEM repo scan.
 
 Reference repo example: PFCOMM
 
@@ -81,6 +114,7 @@ Before writing advice based on reference repositories, the foreground AI should 
 - Which current-repo files were read?
 - Which reference repositories were named by the human?
 - Which reference files were read?
+- Was `docs/internal-reference/pfem-lite.md` used instead of live PFEM inspection?
 - What transfers cleanly into the current repo?
 - What belongs only in a reference repo?
 - What is source-backed?
@@ -95,7 +129,8 @@ It is a source-aware setup:
 
 - current repo first
 - selected reference repos second
+- embedded fallback references only when clearly named
 - clear transfer rules
 - bounded next action
 
-Load more context. Keep sharper boundaries.
+Load more context. Keep sharper boundaries. Say what you actually read.
