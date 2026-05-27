@@ -45,6 +45,14 @@ release expectation
 
 That output must be repaired before it is trusted.
 
+## Related reference-repo pattern
+
+If the external output includes a repository to inspect, or the human asks to compare another repository against PFEM, read [`../day-in-the-life-15/README.md`](../day-in-the-life-15/README.md) first.
+
+Day 15 already covers reference-repo context and the PFEM comparison pattern. It includes the `bawbel/scanner` example: read the external repo, compare it against an architecture lens such as PFEM, separate source-backed observations from architectural inference, name what the repo already does well, and draft respectful issue suggestions only when the evidence supports them.
+
+Use Day 18 when the immediate problem is external workflow output that may collapse boundaries. Use Day 15 when the immediate problem is loading and comparing another repository as reference material.
+
 ## When to read this example
 
 Read this example when the human brings in output from:
