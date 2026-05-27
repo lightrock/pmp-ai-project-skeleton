@@ -21,8 +21,6 @@ By default, nothing has to "run" anywhere in the traditional way, and you do not
 
 ## What this is
 
-Doctor Bones is not another coding agent.
-
 It is a repo-native discipline layer for using AI assistants and coding agents without losing intent, constraints, checks, or project history.
 
 The basic model is:
