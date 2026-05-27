@@ -139,6 +139,10 @@ Day 17: failed test repair loop
 Day 18: external workflow output repair
   Read when the human brings output from n8n, Zapier, Make, Airtable automation, MCP tools, RAG systems, AI workflow builders, agent-generated reports, feature request boards, or other automation and asks whether to trust it, import it, clean it up, turn it into work, or compare it against project architecture boundaries.
   examples/day-in-the-life-18/README.md
+
+Day 19: add a new day-in-the-life example
+  Read when the human asks to add a day-in-the-life example, teach Doctor Bones a new recurring workflow pattern, or fix a loose example that is not wired into the examples index and AGENTS trigger map.
+  examples/day-in-the-life-19/README.md
 ```
 
 These examples do not override AGENTS.md, human instruction, workorders, checks, or safety constraints. They help the foreground AI recognize the workflow shape and choose the right repo surface.
