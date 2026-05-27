@@ -159,15 +159,20 @@ docs/wiki/ = navigation and cross-links
 lessons learned = repeated failure patterns the repo should remember
 ```
 
-## PFEM-lite analysis reference
+## PFEM-lite and PFCOMM-lite analysis references
 
-Doctor Bones carries a small embedded PFEM reference at:
+Doctor Bones carries small embedded reference snapshots for PFEM and PFCOMM:
 
 ```text
 docs/internal-reference/pfem-lite.md
+docs/internal-reference/pfcomm-lite.md
 ```
 
-Read that file when the human asks for a PFEM-style analysis, evidence-boundary comparison, source/provenance/confidence review, MCP/tool authority boundary review, or external-repo critique and the live PFEM repository is not being inspected.
+Use `pfem-lite.md` when the human asks for PFEM-style analysis, evidence-boundary comparison, source/provenance/confidence review, evidence/package/report/rollup review, MCP/tool authority boundary review, or external-repo critique and the live PFEM repository is not being inspected.
+
+Use `pfcomm-lite.md` when the human asks for PFCOMM-style analysis, command/tasking/status review, authority/context review, coordination-message review, action-receipt review, after-action accountability review, MCP/tool authority boundary review, or external-repo critique and the live PFCOMM repository is not being inspected.
+
+Read both files when the human asks for PFEM/PFCOMM comparison, evidence-to-command boundary analysis, or a review involving both evidence governance and command/coordination discipline.
 
 PFEM-lite is enough for a useful first-pass analysis of:
 
@@ -187,7 +192,27 @@ workorders as durable task contracts
 checks/gates as proof discipline
 ```
 
-Do not claim PFEM-lite is the full PFEM architecture. If the human asks for a full PFEM comparison, inspect the current `lightrock/PFEM` repository state and report which PFEM files were actually read.
+PFCOMM-lite is enough for a useful first-pass analysis of:
+
+```text
+command intent
+authority context
+tasking
+assignments
+resources
+operational status
+action receipts
+escalation requests
+coordination messages
+decision logs
+after-action records
+reports
+MCP/tool exposure as callable interface rather than domain authority
+workorders as durable task contracts
+checks/gates as proof discipline
+```
+
+Do not claim PFEM-lite is the full PFEM architecture or PFCOMM-lite is the full PFCOMM architecture. If the human asks for a full PFEM or PFCOMM comparison, inspect the current `lightrock/PFEM` or `lightrock/PFCOMM` repository state and report which files were actually read.
 
 ## External repository read-only safety
 
