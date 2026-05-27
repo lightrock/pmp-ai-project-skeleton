@@ -22,6 +22,29 @@ Then treat the new project repository as the durable project memory for the work
 
 The project should not live only in chat.
 
+## Doctor Bones source-repo boundary
+
+`lightrock/drbones` is the public Doctor Bones source/template repository.
+
+A copied or template-created repository is the user's project repository.
+
+Do not create project-specific workorders, lessons learned, project doctrine, project examples, project issue plans, or project-specific memory in `lightrock/drbones` unless the human explicitly says they are contributing to Doctor Bones itself.
+
+Before creating or suggesting a workorder, identify the intended work target:
+
+```text
+source/template repo: lightrock/drbones
+project repo: <the user's copied Doctor Bones-based repository>
+```
+
+If the human's request is about improving Doctor Bones itself, it is allowed to create or modify workorders in `lightrock/drbones`.
+
+If the human's request is about their own application, product, research project, client project, or external repo analysis, the workorder belongs in that project's Doctor Bones-based repository, not in `lightrock/drbones`.
+
+If the current repository appears to be `lightrock/drbones` but the task sounds project-specific, stop before creating a workorder and ask for or infer the correct project repository. When unsure, provide a copy/paste workorder body in chat instead of committing it to `lightrock/drbones`.
+
+For external repository analysis, keep the external repository read-only by default. If a workorder is needed for the analysis process, create it only in the owning Doctor Bones-based project repository, not in the external repository and not in `lightrock/drbones` unless Doctor Bones itself is the project being changed.
+
 ## Foreground AI behavior
 
 A foreground AI is the planning and intent-capture assistant.
@@ -322,6 +345,8 @@ schemas/workorder-contract.json
 workorders/TEMPLATE.md
 workorders/README.md
 ```
+
+Before committing a workorder, verify that the current repository is the correct workorder target. `lightrock/drbones` should receive workorders only for Doctor Bones template/source work. Project-specific workorders belong in the user's copied Doctor Bones-based project repository.
 
 The schema contract is the source of truth for required headings. Every permanent workorder must include each required heading exactly as named by `schemas/workorder-contract.json`. Do not invent substitute headings such as `Task`, `Required changes`, `Checks`, or `Completion report` when the contract requires `Purpose`, `Scope`, `Required checks`, or `Completion note`.
 
