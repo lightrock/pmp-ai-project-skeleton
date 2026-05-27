@@ -7,6 +7,8 @@ Il aide à garder la mémoire du projet dans le dépôt, au lieu de la laisser e
 Tu n’as pas forcément besoin de cloner en local la copie modèle de ton dépôt pour l’utiliser. Doctor Bones porte sa cognitionkitecture dans le dépôt lui-même. Si tu suis les instructions de démarrage ci-dessous, ton IA de premier plan devrait avoir assez de repères projet pour raisonner à partir de la guidance du dépôt, des exemples, des playbooks, des vérifications et des règles de passation.
 
 Par défaut, rien n’a besoin de “tourner” quelque part au sens traditionnel, et tu n’as pas forcément besoin d’invoquer un exécuteur comme Codex. Commence par orienter ton IA de premier plan vers l’instance de dépôt appropriée basée sur Doctor Bones. Utilise un exécuteur seulement quand la tâche exige des modifications de fichiers, un environnement d’exécution, des vérifications, des commits ou des pull requests.
+L’idée est la suivante : chaque fois que tu démarres un nouveau projet, démarre avec un Doctor Bones.
+
 
 ## Langues
 
@@ -47,6 +49,14 @@ Le dépôt est la couche de mémoire et de discipline entre les deux.
 5. Utilise un ordre de travail pour les tâches substantielles, multi-fichiers, sensibles à l’architecture ou sensibles au processus.
 6. Lance les vérifications disponibles avant de considérer le travail comme terminé.
 
+## Limite de processus
+
+Ne crée pas les ordres de travail de ton projet dans le dépôt source public Doctor Bones, sauf si tu contribues intentionnellement à Doctor Bones lui-même.
+
+Pour ton propre projet, crée ou utilise d’abord ton propre dépôt à partir de ce modèle. Ensuite, oriente ton IA de premier plan vers l’URL de ce dépôt de projet et crée les ordres de travail là-bas.
+
+Utilise `lightrock/drbones` comme modèle source, implémentation de référence et projet amont. Utilise ton dépôt copié basé sur Doctor Bones comme l’endroit où vivent la mémoire de ton projet, les ordres de travail, les leçons apprises et les changements spécifiques au projet.
+
 ## Prompt de démarrage pour l’IA de premier plan
 
 Ce prompt est destiné à un dépôt créé à partir du modèle Doctor Bones. Après avoir copié ce modèle, remplace `<your project repository URL>` par l’URL de ton propre dépôt de projet.
@@ -86,20 +96,3 @@ python -m pytest
 ```
 
 Si une vérification échoue, colle la sortie exacte de la commande dans l’IA de premier plan et demande la plus petite correction sûre.
-
-## À propos de Doctor Bones
-
-Doctor Bones est une discipline de travail agnostique vis-à-vis des fournisseurs d’IA pour les projets assistés par IA.
-
-La version courte :
-
-```text
-intention capturée
-portée bornée
-contraintes préservées
-exécuteur instruit
-vérifications requises
-clôture rattachée à l’intention source
-```
-
-L’explication complète se trouve dans [`readme_pmp.md`](../../readme_pmp.md).
