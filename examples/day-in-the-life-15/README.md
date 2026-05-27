@@ -29,10 +29,13 @@ A reference repo can be:
 - a playbook collection
 - a standards/example repo
 - a prior project with reusable patterns
+- another person's repo being analyzed for architecture lessons or issue suggestions
 
 For example, a repository like `skills-for-humanity` could be loaded as a method-library reference repo. The foreground AI should inspect it, identify portable reasoning procedures, and use them only when the human asks to port, adapt, compare, or load up on that source.
 
 Another example is [`ZhixiangLuo/10xProductivity`](https://github.com/ZhixiangLuo/10xProductivity), which can be loaded as a workflow-pattern reference repo for local-agent-as-universal-client, tool-connection recipes, and cross-tool productivity workflows. The foreground AI should treat it as reference material, not automatic DrBones doctrine.
+
+A premier example of intelligent reference-repo analysis is [`bawbel/scanner`](https://github.com/bawbel/scanner). The foreground AI can inspect that repo against a current-repo architecture lens such as PFEM, compare evidence boundaries, contracts, schemas, testing discipline, runtime/static separation, confidence versus severity, lifecycle handling, and output contracts, then produce respectful GitHub issue suggestions. The point is not to criticize another repo from memory; the point is to read the source, identify what it already does well, name the real architectural gap if one exists, and preserve the boundary between source-backed observation and inference.
 
 ## Source roles
 
@@ -62,6 +65,14 @@ Reference repo example: workflow-pattern repo
 - A workflow-pattern repo is a source of reusable operating patterns, setup flows, tool-connection recipes, or automation examples.
 - It may be useful for comparing how another project structures agent-readable playbooks, local setup, tool connections, and cross-tool workflows.
 - It should not be treated as permission to copy security assumptions, credentials flows, automation claims, or product positioning into the current repo.
+
+Reference repo example: external architecture analysis
+
+- An external repo can be analyzed to learn architecture lessons or draft useful issue suggestions.
+- The foreground AI should read actual files from the external repo before making claims.
+- The foreground AI should separate what the external repo already does well from what appears to be missing.
+- The foreground AI should label source-backed observations separately from architectural inference.
+- The output should be respectful, concrete, and useful to the external maintainer.
 
 ## Checklist
 
