@@ -49,6 +49,12 @@ That output must be repaired before it is trusted.
 
 If the external output includes a repository to inspect, or the human asks to compare another repository against PFEM, read [`../day-in-the-life-15/README.md`](../day-in-the-life-15/README.md) first.
 
+Simple PFEM-lite invocation:
+
+```text
+Go analyze my other repo <repo URL or owner/name> with PFEM-lite analysis capabilities.
+```
+
 Day 15 covers reference-repo context and the PFEM comparison pattern. It includes the `bawbel/scanner` example: read the external repo, compare it against an architecture lens such as PFEM, separate source-backed observations from architectural inference, name what the repo already does well, and draft respectful issue suggestions only when the evidence supports them.
 
 Doctor Bones also carries a small embedded PFEM reference at `../../docs/internal-reference/pfem-lite.md`. Use that file for PFEM-lite first-pass analysis when live PFEM repo inspection is not available, and say so clearly. Do not claim a full PFEM comparison unless the current `lightrock/PFEM` repo was actually inspected.
