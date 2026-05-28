@@ -132,6 +132,35 @@ def check_contract_references(repo_root: Path, contract: WorkorderContract) -> l
     return results
 
 
+def check_connector_safe_fixture_wording(repo_root: Path) -> list[CheckResult]:
+    """Catch fixture headings that have caused connector write friction before."""
+    results: list[CheckResult] = []
+    scanned_roots = [repo_root / "tests", repo_root / "examples", repo_root / "workorders"]
+    flagged: list[str] = []
+
+    for root in scanned_roots:
+        if not root.exists():
+            continue
+        for path in sorted(root.rglob("*")):
+            if not path.is_file() or path.suffix not in {".md", ".py", ".txt", ".json"}:
+                continue
+            text = path.read_text(encoding="utf-8")
+            if "# Bad" in text:
+                flagged.append(str(path.relative_to(repo_root)))
+
+    if flagged:
+        results.append(
+            CheckResult(
+                False,
+                "connector-unsafe fixture wording found; use neutral contract-specific wording: " + ", ".join(flagged),
+            )
+        )
+    else:
+        results.append(CheckResult(True, "connector-safe fixture wording check passed"))
+
+    return results
+
+
 def run_checks(repo_root: Path, area: str) -> list[CheckResult]:
     contract = load_contract(repo_root)
     results: list[CheckResult] = []
@@ -139,6 +168,7 @@ def run_checks(repo_root: Path, area: str) -> list[CheckResult]:
     if area in {"workorders", "all"}:
         results.extend(check_workorders(repo_root, contract))
         results.extend(check_contract_references(repo_root, contract))
+        results.extend(check_connector_safe_fixture_wording(repo_root))
 
     return results
 
