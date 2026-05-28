@@ -112,3 +112,15 @@ def test_pmp_check_validates_semantic_day_examples() -> None:
     repo = Path(__file__).resolve().parents[1]
     results = pmp_check.check_day_examples(repo)
     assert all(result.ok for result in results), "\n".join(result.message for result in results if not result.ok)
+
+
+def test_agents_router_links_to_routed_doctrine() -> None:
+    repo = Path(__file__).resolve().parents[1]
+    agents_text = (repo / "AGENTS.md").read_text(encoding="utf-8")
+
+    for relative in pmp_check.ROUTED_DOCTRINE_FILES:
+        assert relative in agents_text
+        assert (repo / relative).exists(), relative
+
+    results = pmp_check.check_routed_doctrine(repo)
+    assert all(result.ok for result in results), "\n".join(result.message for result in results if not result.ok)
