@@ -88,7 +88,7 @@
     }
 
     .lede {
-      max-width: 780px;
+      max-width: 800px;
       margin-top: 22px;
       font-size: clamp(1.08rem, 2vw, 1.28rem);
     }
@@ -218,14 +218,28 @@
       <p class="eyebrow">Doctor Bones / GitHub-native project discipline</p>
       <h1>A starting discipline for AI-assisted work inside a repository.</h1>
       <p class="lede">
-        Doctor Bones gives a new project an initial governing structure for working with AI:
-        repository-owned guidance, example prompt workflows, workorders, checks, and handoff rules.
-        The GitHub repository remains the source of truth.
+        Doctor Bones helps you keep project memory inside the repo instead of trapped in chat.
+        It gives your human/AI team a shared operating discipline: workorders, playbooks,
+        examples, checks, handoff rules, and release-readiness habits.
       </p>
       <div class="actions">
         <a class="button" href="https://github.com/lightrock/drbones">Open the GitHub repository</a>
         <a class="button secondary" href="https://github.com/lightrock/drbones/blob/main/README.md">Read the README</a>
+        <a class="button secondary" href="https://github.com/lightrock/drbones/blob/main/TODO.md">Read the TODO</a>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>The lane</h2>
+      <p>
+        Doctor Bones is not trying to replace Cursor, Codex, Claude Code, Copilot, or GitHub bots.
+        Those tools are the execution layer. Doctor Bones is the repo-native governance, instruction,
+        and evaluation layer that tells those hands what a valid job looks like.
+      </p>
+      <p style="margin-top: 14px;">
+        The open work is to turn the discipline into more executable repo artifacts: schemas, rubrics,
+        examples, checks, and integration hooks. The rough list lives in <a href="https://github.com/lightrock/drbones/blob/main/TODO.md">TODO.md</a>.
+      </p>
     </section>
 
     <section class="section">
@@ -303,7 +317,7 @@
           <span class="num">2</span>
           <div>
             <h3>Ask the foreground AI to read first</h3>
-            <p>The AI should inspect README, AGENTS, examples, and relevant folder guidance before giving architecture advice or suggesting changes.</p>
+            <p>The AI should inspect README, AGENTS, examples, readme_pmp, and relevant folder guidance before giving architecture advice or suggesting changes.</p>
           </div>
         </div>
         <div class="step">
@@ -326,9 +340,9 @@
 Current repo state beats chat memory. Inspect the current project repository before giving
 architecture advice, writing workorders, or suggesting repo changes.
 
-Read README.md, AGENTS.md, examples/README.md, and relevant folder guidance first.
-Then identify current state, target, constraints, foreground/executor decision,
-and the smallest useful next move.</code></pre>
+Read README.md, examples/README.md, readme_pmp.md, AGENTS.md, and the relevant folder
+guidance from the project repository first. Then identify current state, target, constraints,
+foreground/executor decision, and the smallest useful next move.</code></pre>
     </section>
 
     <section class="section">
@@ -336,7 +350,9 @@ and the smallest useful next move.</code></pre>
       <p>
         When a repository has enough discipline, a short prompt can carry more meaning than it looks like. The AI is not guessing from a blank page.
         It can read the repo rules, follow the examples, respect the workorder boundary, and apply referenced architecture lenses such as PFEM and PFCOMM.
-        *This was done vs. complete reference to the repos of PFEM and PFCOMM, not the lite versions of those preloaded in your Doctor Bones.
+      </p>
+      <p style="margin-top: 14px;">
+        The demo below used fuller PFEM and PFCOMM references, not only the lightweight snapshots embedded in Doctor Bones.
       </p>
       <pre><code>Make me a WebGL 3D demo of what PFEM and PFCOMM would do in the context of a resilient mesh
 of flying things that need to be coordinated with a mission objective.</code></pre>
@@ -352,7 +368,7 @@ of flying things that need to be coordinated with a mission objective.</code></p
     <section class="section">
       <h2>Same architecture, different mission surface</h2>
       <p>
-        The real PFEM and PFCOMM architectures can also shape a critical-infrastructure alert handling system and a HAM RADIO/RACES field interface for watching the skies. Same generic boundaries; different operator surfaces.
+        The real PFEM and PFCOMM architectures can also shape a critical-infrastructure alert handling system and a ham/RACES field interface for watching the skies. Same generic boundaries; different operator surfaces.
       </p>
       <div class="actions">
         <a class="button secondary" href="pfem-pfcomm-kungfu.html">Open the PFEM/PFCOMM kung fu page</a>
@@ -360,7 +376,7 @@ of flying things that need to be coordinated with a mission objective.</code></p
     </section>
 
     <section class="section">
-      <h2>What can Doctor Bones inherent PFEM-lite do as regards coding agents and testing repositories?</h2>
+      <h2>What can Doctor Bones' built-in PFEM-lite do for coding agents and testing repositories?</h2>
       <p>
         PFEM-lite gives a coding agent a first-pass evidence-boundary lens for a repository. It helps the agent ask whether source inputs, normalized records, findings, reports, packages, rollups, tool calls, checks, and completion claims are being kept separate.
       </p>
@@ -417,6 +433,7 @@ of flying things that need to be coordinated with a mission objective.</code></p
     <footer>
       This is the rendered public entry point. The working source of truth is the
       <a href="https://github.com/lightrock/drbones">Doctor Bones GitHub repository</a>.
+      See also the <a href="https://github.com/lightrock/drbones/blob/main/TODO.md">working TODO</a>.
     </footer>
   </main>
 </body>
