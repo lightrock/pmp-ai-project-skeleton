@@ -20,7 +20,7 @@ Can we define the repo-native standards that Cursor, Codex, Claude Code, Copilot
 
 ## Working on it / TODO / TO FINISH
 
-< link the todo here >
+See [TODO.md](TODO.md) for the rough working list of what still needs to become repo files, schemas, rubrics, examples, checks, and integration targets.
 
 ## Languages
 
