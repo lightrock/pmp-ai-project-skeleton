@@ -1,14 +1,28 @@
+Para a introdução pública, veja o [site do Doctor Bones no GitHub Pages](https://lightrock.github.io/drbones/).
+
 # Doctor Bones
 
-Doctor Bones é um modelo de repositório independente de fornecedor de IA para desenvolvimento assistido por IA.
+Doctor Bones é um modelo de repositório independente de fornecedor para desenvolvimento assistido por IA.
 
-Ele ajuda a manter a memória do projeto dentro do repositório, em vez de presa no chat. Ele dá ao time humano/IA uma disciplina operacional compartilhada: ordens de trabalho, playbooks, exemplos, verificações, regras de passagem de contexto e hábitos de prontidão para releases.
+Ele ajuda você a manter a memória do projeto dentro do repositório, em vez de presa no chat. Ele dá ao seu time humano/IA uma disciplina operacional compartilhada: ordens de trabalho, playbooks, exemplos, verificações, regras de passagem de contexto e hábitos de prontidão para releases.
 
-Você não precisa necessariamente fazer checkout local da cópia de template do seu repositório para usar isso. O Doctor Bones carrega sua cognitionkitecture no próprio repositório. Se você seguir as instruções de inicialização abaixo, sua IA de primeiro plano deve ter contexto suficiente do projeto para raciocinar a partir da orientação do repositório, dos exemplos, dos playbooks, das verificações e das regras de handoff.
+A ideia é que, sempre que você começar um novo projeto, comece com um Doctor Bones.
 
-Por padrão, nada precisa “rodar” em lugar nenhum no sentido tradicional, e você não precisa necessariamente invocar um executor como o Codex. Aponte primeiro sua IA de primeiro plano para a instância apropriada de repositório baseada em Doctor Bones. Use um executor apenas quando a tarefa exigir edições de arquivo, ambiente de execução, verificações, commits ou pull requests.
-A ideia é: sempre que você começar um novo projeto, comece com um Doctor Bones.
+Você não precisa necessariamente baixar a sua cópia deste modelo para o seu PC local ou ambiente de agente para usá-lo. O Doctor Bones carrega sua arquitetura cognitiva no próprio repositório. Se você seguir as instruções de início abaixo, sua IA de primeiro plano deve ter inteligência de projeto suficiente para raciocinar a partir da orientação do repositório, dos exemplos, dos playbooks, das verificações e das regras de passagem de contexto.
 
+Por padrão, nada precisa "rodar" em lugar nenhum da forma tradicional, e você não precisa necessariamente invocar um executor como o Codex. Aponte primeiro sua IA de primeiro plano para a instância adequada de repositório baseada em Doctor Bones. Use um executor apenas quando a tarefa exigir edições de arquivos, ambiente de execução, verificações, commits ou pull requests.
+
+## Mais sobre a ideia
+
+Antes de a IA programar, ensine o repositório a falar. Antes de a IA afirmar que terminou, defina o que terminado significa. Antes de a IA recomendar, separe evidência de conclusão. Antes de a IA aplicar um patch, defina autoridade, verificação e regras de fronteira.
+
+Podemos definir padrões nativos do repositório que Cursor, Codex, Claude Code, Copilot... e bots do GitHub devem obedecer?
+
+Podemos facilitar a adaptação disso às suas necessidades específicas?
+
+## Em andamento / TODO / A TERMINAR
+
+Veja [TODO.md](../../TODO.md) para a lista aproximada do que ainda precisa virar arquivos de repositório, esquemas, rubricas, exemplos, verificações e alvos de integração.
 
 ## Idiomas
 
@@ -21,8 +35,6 @@ A ideia é: sempre que você começar um novo projeto, comece com um Doctor Bone
 
 ## O que é isto
 
-Doctor Bones não é mais um agente de programação.
-
 É uma camada de disciplina nativa do repositório para usar assistentes de IA e agentes de programação sem perder intenção, restrições, verificações ou histórico do projeto.
 
 O modelo básico é:
@@ -32,20 +44,20 @@ intenção humana
 → a IA de primeiro plano esclarece a tarefa
 → o repositório captura orientação durável
 → a IA executora realiza trabalho delimitado
-→ as verificações validam o que pode ser validado
-→ a conclusão se conecta de volta à intenção original
+→ as verificações validam o que pode ser verificado
+→ a conclusão se conecta de volta à intenção de origem
 ```
 
-Pense na IA de primeiro plano como o assistente de planejamento e arquitetura. Pense na IA executora como o trabalhador com acesso a arquivos, ambiente de execução, testes e ferramentas de commit/PR.
+Pense na IA de primeiro plano como a assistente de planejamento e arquitetura. Pense na IA executora como o trabalhador com acesso a arquivos, ambiente de execução, testes e ferramentas de commit/PR.
 
 O repositório é a camada de memória e disciplina entre os dois.
 
 ## Primeiros passos
 
 1. Se você copiou este modelo, reescreva este README em torno do seu projeto real em breve.
-2. Leia [`examples/README.md`](../../examples/README.md) para ver os exemplos de fluxo de trabalho “day-in-the-life”.
+2. Leia [`examples/README.md`](../../examples/README.md) para ver os exemplos de fluxo de trabalho day-in-the-life.
 3. Leia [`readme_pmp.md`](../../readme_pmp.md) pelo menos uma vez e mantenha-o por perto.
-4. Leia [`AGENTS.md`](../../AGENTS.md) antes de pedir a um assistente de IA para trabalhar no repositório.
+4. Leia [`AGENTS.md`](../../AGENTS.md) antes de pedir a um assistente de IA para alterar o repositório.
 5. Use uma ordem de trabalho para trabalhos substanciais, com vários arquivos, sensíveis à arquitetura ou sensíveis ao processo.
 6. Execute as verificações disponíveis antes de tratar o trabalho como concluído.
 
@@ -55,7 +67,7 @@ Não crie as ordens de trabalho do seu projeto no repositório-fonte público do
 
 Para o seu próprio projeto, primeiro crie ou use seu próprio repositório a partir deste modelo. Depois, aponte sua IA de primeiro plano para a URL desse repositório de projeto e crie as ordens de trabalho lá.
 
-Use `lightrock/drbones` como modelo-fonte, implementação de referência e projeto upstream. Use seu repositório copiado baseado em Doctor Bones como o local onde ficam a memória do projeto, as ordens de trabalho, as lições aprendidas e as mudanças específicas do projeto.
+Use `lightrock/drbones` como modelo-fonte, implementação de referência e projeto upstream. Use seu repositório copiado baseado em Doctor Bones como o local onde vivem a memória do seu projeto, as ordens de trabalho, as lições aprendidas e as mudanças específicas do projeto.
 
 ## Prompt de início para a IA de primeiro plano
 
@@ -82,13 +94,13 @@ Para trabalho substancial no seu repositório de projeto copiado, converse com a
 Create a workorder and also show it to me here.
 ```
 
-Você pode copiar um link para o arquivo de ordem de trabalho e dizer à sua IA executora, trabalhando em um ambiente para o repositório do seu projeto, para executá-la.
+Você pode copiar um link para o arquivo da ordem de trabalho e dizer à sua IA executora, trabalhando em um ambiente para o repositório do seu projeto, para executá-la.
 
-Você também pode copiar/colar o corpo da ordem de trabalho se pediu à IA de primeiro plano para mostrá-lo primeiro. Mantenha esse bloco limpo: sem citações, notas do assistente, explicações, links extras ou comentários dentro do corpo da ordem de trabalho.
+Você também pode copiar/colar o corpo da ordem de trabalho se pediu à IA de primeiro plano para mostrá-lo primeiro. Mantenha esse bloco de copiar/colar limpo: sem citações, notas do assistente, explicações, links extras ou comentários dentro do corpo da ordem de trabalho.
 
 ## Verificações
 
-Execute isto a partir da raiz do repositório quando disponível:
+Execute estes comandos a partir da raiz do repositório quando disponíveis:
 
 ```text
 python tools/pmp_check.py --area all
