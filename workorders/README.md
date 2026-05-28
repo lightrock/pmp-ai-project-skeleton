@@ -10,6 +10,32 @@ A workorder is not a generic pull request summary.
 
 A workorder explains what the next human, AI assistant, coding agent, or review process is supposed to do.
 
+
+## Repository target check
+
+Before creating or committing a workorder, verify that the current repository is the correct workorder target.
+
+```text
+source/template repo: lightrock/drbones
+project repo: <the user's copied Doctor Bones-based repository>
+```
+
+`lightrock/drbones` should receive workorders only for Doctor Bones template/source work. Project-specific workorders belong in the user's copied Doctor Bones-based project repository.
+
+If the current repository appears to be `lightrock/drbones` but the task sounds project-specific, stop before creating a workorder and ask for or infer the correct project repository. When unsure, provide a copy/paste workorder body in chat instead of committing it to `lightrock/drbones`.
+
+## Workorder shortcut phrases
+
+When the human says:
+
+```text
+make a workorder
+create a workorder
+write a workorder
+```
+
+create a dated workorder under `workorders/` and give the exact executor line described below.
+
 ## Filename pattern
 
 Use one permanent dated file per substantial task:
@@ -55,6 +81,8 @@ Every permanent workorder must include these headings exactly:
 ```
 
 Do not substitute near-miss headings such as `Task`, `Required changes`, `Checks`, or `Completion report` when the contract requires the exact headings above.
+
+After drafting a workorder, manually compare its headings against the contract before committing. If local checks are available, run `python tools/pmp_check.py --area all`. If local checks are not available, say that and still report the manual contract check.
 
 ## Required checks governance
 

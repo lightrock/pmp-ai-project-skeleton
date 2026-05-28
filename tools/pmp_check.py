@@ -18,6 +18,33 @@ from typing import Iterable
 
 DEFAULT_CONTRACT_PATH = Path("schemas/workorder-contract.json")
 
+ROUTED_DOCTRINE_FILES = (
+    "docs/agent-operating-model.md",
+    "docs/repo-boundaries.md",
+    "docs/architecture-lenses.md",
+    "docs/repo-maintenance.md",
+    "examples/TRIGGER_MAP.md",
+    "workorders/README.md",
+    "playbooks/README.md",
+    "lessons-learned/README.md",
+)
+
+ROUTED_DOCTRINE_TERMS = {
+    "docs/agent-operating-model.md": (
+        "Foreground AI behavior",
+        "Executor AI behavior",
+        "start a new tab",
+        "Break words",
+    ),
+    "docs/repo-boundaries.md": ("lightrock/drbones", "External repository read-only safety"),
+    "docs/architecture-lenses.md": ("PFEM-lite", "PFCOMM-lite", "docs/internal-reference/pfem-lite.md"),
+    "docs/repo-maintenance.md": ("README and translations", "Pull requests and merge conflicts", "Full gates"),
+    "examples/TRIGGER_MAP.md": ("Day-in-the-life trigger map",),
+    "workorders/README.md": ("Filename pattern", "Completion note"),
+    "playbooks/README.md": ("Playbooks", "Executor rule"),
+    "lessons-learned/README.md": ("Lessons learned", "When to create or propose one"),
+}
+
 
 @dataclass(frozen=True)
 class CheckResult:
@@ -236,6 +263,50 @@ def check_day_examples(repo_root: Path) -> list[CheckResult]:
 
     return results
 
+
+def check_routed_doctrine(repo_root: Path) -> list[CheckResult]:
+    """Ensure root AGENTS.md remains a router to the semantic doctrine files."""
+    results: list[CheckResult] = []
+    agents_file = repo_root / "AGENTS.md"
+
+    if not agents_file.exists():
+        return [CheckResult(False, "missing AGENTS.md router")]
+
+    agents_text = agents_file.read_text(encoding="utf-8")
+    missing_links: list[str] = []
+    missing_files: list[str] = []
+    missing_terms: list[str] = []
+
+    for relative in ROUTED_DOCTRINE_FILES:
+        if relative not in agents_text:
+            missing_links.append(relative)
+
+        path = repo_root / relative
+        if not path.exists():
+            missing_files.append(relative)
+            continue
+
+        text = path.read_text(encoding="utf-8")
+        for term in ROUTED_DOCTRINE_TERMS.get(relative, ()):
+            if term not in text:
+                missing_terms.append(f"{relative}: {term}")
+
+    if missing_links:
+        results.append(
+            CheckResult(False, "AGENTS.md is missing routed doctrine links: " + ", ".join(missing_links))
+        )
+    if missing_files:
+        results.append(CheckResult(False, "missing routed doctrine files: " + ", ".join(missing_files)))
+    if missing_terms:
+        results.append(
+            CheckResult(False, "routed doctrine files are missing expected terms: " + ", ".join(missing_terms))
+        )
+
+    if not missing_links and not missing_files and not missing_terms:
+        results.append(CheckResult(True, "AGENTS.md links to routed doctrine files"))
+
+    return results
+
 def run_checks(repo_root: Path, area: str) -> list[CheckResult]:
     contract = load_contract(repo_root)
     results: list[CheckResult] = []
@@ -245,6 +316,7 @@ def run_checks(repo_root: Path, area: str) -> list[CheckResult]:
         results.extend(check_contract_references(repo_root, contract))
         results.extend(check_connector_safe_fixture_wording(repo_root))
         results.extend(check_day_examples(repo_root))
+        results.extend(check_routed_doctrine(repo_root))
 
     return results
 
