@@ -18,6 +18,8 @@ Before the AI codes, teach the repo how to talk. Before the AI claims done, defi
 
 Can we define the repo-native standards that Cursor, Codex, Claude Code, Copilot... and GitHub bots should obey?
 
+Can we make it easy to tailor for your specific needs?
+
 ## Working on it / TODO / TO FINISH
 
 See [TODO.md](TODO.md) for the rough working list of what still needs to become repo files, schemas, rubrics, examples, checks, and integration targets.
