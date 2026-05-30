@@ -26,28 +26,10 @@
       line-height: 1.58;
     }
 
-    main {
-      width: min(1040px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 64px;
-    }
-
-    .hero,
-    .section {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: clamp(28px, 5vw, 52px);
-    }
-
-    .section {
-      margin-top: 18px;
-      padding: clamp(22px, 4vw, 34px);
-    }
+    main { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 64px; }
+    .hero, .section { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }
+    .hero { padding: clamp(28px, 5vw, 52px); }
+    .section { margin-top: 18px; padding: clamp(22px, 4vw, 34px); }
 
     .eyebrow {
       display: inline-flex;
@@ -63,42 +45,12 @@
       text-transform: uppercase;
     }
 
-    h1 {
-      margin: 0;
-      max-width: 850px;
-      font-size: clamp(2rem, 5vw, 4.2rem);
-      line-height: 1.04;
-      letter-spacing: -0.045em;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      letter-spacing: -0.03em;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      font-size: 1.05rem;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .lede {
-      max-width: 800px;
-      margin-top: 22px;
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
+    h1 { margin: 0; max-width: 850px; font-size: clamp(2rem, 5vw, 4.2rem); line-height: 1.04; letter-spacing: -0.045em; }
+    h2 { margin: 0 0 10px; font-size: clamp(1.35rem, 3vw, 2rem); letter-spacing: -0.03em; }
+    h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    p { margin: 0; color: var(--muted); }
+    .lede { max-width: 800px; margin-top: 22px; font-size: clamp(1.08rem, 2vw, 1.28rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
     a.button {
       display: inline-flex;
@@ -114,30 +66,10 @@
       font-weight: 750;
     }
 
-    a.button.secondary {
-      background: white;
-      color: var(--ink);
-      border-color: var(--line);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-    }
-
+    a.button.secondary { background: white; color: var(--ink); border-color: var(--line); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
     .card p { color: var(--muted); }
 
     .file-name {
@@ -152,56 +84,13 @@
       font-weight: 700;
     }
 
-    .steps {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
+    .steps { display: grid; gap: 12px; margin-top: 16px; }
+    .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+    .num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 999px; background: var(--soft); color: var(--ink); font-weight: 800; }
 
-    .step {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: white;
-    }
-
-    .num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--ink);
-      font-weight: 800;
-    }
-
-    code,
-    pre {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    }
-
-    pre {
-      margin: 16px 0 0;
-      overflow-x: auto;
-      padding: 18px;
-      border-radius: 14px;
-      background: #111827;
-      color: #f8fafc;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-    }
-
-    footer {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+    pre { margin: 16px 0 0; overflow-x: auto; padding: 18px; border-radius: 14px; background: #111827; color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.10); }
+    footer { margin-top: 24px; color: var(--muted); font-size: 0.95rem; }
     footer a { color: var(--ink); font-weight: 700; }
 
     @media (max-width: 820px) {
@@ -245,96 +134,38 @@
     <section class="section">
       <h2>What you get at the beginning</h2>
       <div class="grid" aria-label="Doctor Bones starting contents">
-        <article class="card">
-          <h3>Governing AI discipline</h3>
-          <p>Basic rules for foreground AI planning, executor AI work, repo inspection, scope control, and human authority.</p>
-        </article>
-        <article class="card">
-          <h3>Example prompt workflows</h3>
-          <p>Day-in-the-life examples that teach future AI sessions when to read guidance, when to create workorders, and when to stop.</p>
-        </article>
-        <article class="card">
-          <h3>Workorders and checks</h3>
-          <p>A plain contract format for bounded file-changing work, plus checks that help keep repo guidance and examples coherent.</p>
-        </article>
+        <article class="card"><h3>Governing AI discipline</h3><p>Basic rules for foreground AI planning, executor AI work, repo inspection, scope control, and human authority.</p></article>
+        <article class="card"><h3>Example prompt workflows</h3><p>Day-in-the-life examples that teach future AI sessions when to read guidance, when to create workorders, and when to stop.</p></article>
+        <article class="card"><h3>Workorders and checks</h3><p>A plain contract format for bounded file-changing work, plus checks that help keep repo guidance and examples coherent.</p></article>
       </div>
     </section>
 
     <section class="section">
       <h2>What the repo actually uses</h2>
-      <p>
-        The starting material is ordinary GitHub-native project material. There is no special platform to install before the repo can begin teaching the AI how to work.
-      </p>
+      <p>The starting material is ordinary GitHub-native project material. There is no special platform to install before the repo can begin teaching the AI how to work.</p>
       <div class="grid two" aria-label="Doctor Bones repo pieces">
-        <article class="card">
-          <span class="file-name">README.md</span>
-          <h3>Human-facing orientation</h3>
-          <p>The plain starting explanation: what this repo is, how to begin, and where a project-specific copy should put its own memory.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">AGENTS.md</span>
-          <h3>AI operating rules</h3>
-          <p>Standing instructions for AI assistants: inspect repo state, respect the source/project boundary, and choose advice, prompt, edit, or workorder deliberately.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">examples/</span>
-          <h3>Prompt workflow examples</h3>
-          <p>Concrete day-in-the-life patterns that show how a foreground AI should behave in recurring project situations.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">workorders/</span>
-          <h3>Bounded executor tasks</h3>
-          <p>Workorders describe file-changing work with purpose, scope, constraints, required checks, fallback behavior, and completion notes.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">schemas/</span>
-          <h3>Contract shape</h3>
-          <p>The workorder contract gives future AI sessions a concrete structure to validate against instead of relying on vibes.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">tools/</span>
-          <h3>Repo checks</h3>
-          <p>Check scripts help catch drift between guidance, examples, schemas, and the discipline the repo claims to teach.</p>
-        </article>
+        <article class="card"><span class="file-name">README.md</span><h3>Human-facing orientation</h3><p>The plain starting explanation: what this repo is, how to begin, and where a project-specific copy should put its own memory.</p></article>
+        <article class="card"><span class="file-name">AGENTS.md</span><h3>AI operating rules</h3><p>Standing instructions for AI assistants: inspect repo state, respect the source/project boundary, and choose advice, prompt, edit, or workorder deliberately.</p></article>
+        <article class="card"><span class="file-name">examples/</span><h3>Prompt workflow examples</h3><p>Concrete day-in-the-life patterns that show how a foreground AI should behave in recurring project situations.</p></article>
+        <article class="card"><span class="file-name">workorders/</span><h3>Bounded executor tasks</h3><p>Workorders describe file-changing work with purpose, scope, constraints, required checks, fallback behavior, and completion notes.</p></article>
+        <article class="card"><span class="file-name">schemas/</span><h3>Contract shape</h3><p>The workorder contract gives future AI sessions a concrete structure to validate against instead of relying on vibes.</p></article>
+        <article class="card"><span class="file-name">tools/</span><h3>Repo checks</h3><p>Check scripts help catch drift between guidance, examples, schemas, and the discipline the repo claims to teach.</p></article>
       </div>
     </section>
 
     <section class="section">
       <h2>How it starts</h2>
-      <p>
-        You can begin by pointing a foreground AI at the GitHub repository. The AI reads the repo guidance first,
-        then helps decide whether the next move is advice, a prompt, a small doc edit, or a workorder for an executor.
-      </p>
+      <p>You can begin by pointing a foreground AI at the GitHub repository. The AI reads the repo guidance first, then helps decide whether the next move is advice, a prompt, a small doc edit, or a workorder for an executor.</p>
       <div class="steps">
-        <div class="step">
-          <span class="num">1</span>
-          <div>
-            <h3>Use GitHub as the shared memory</h3>
-            <p>The repository carries the current project instructions. Chat memory is useful, but repo state wins.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="num">2</span>
-          <div>
-            <h3>Ask the foreground AI to read first</h3>
-            <p>The AI should inspect README, AGENTS, examples, readme_pmp, and relevant folder guidance before giving architecture advice or suggesting changes.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="num">3</span>
-          <div>
-            <h3>Use workorders for file-changing work</h3>
-            <p>When the task needs an executor, the workorder names the target repo, scope, constraints, checks, fallback behavior, and expected completion note.</p>
-          </div>
-        </div>
+        <div class="step"><span class="num">1</span><div><h3>Use GitHub as the shared memory</h3><p>The repository carries the current project instructions. Chat memory is useful, but repo state wins.</p></div></div>
+        <div class="step"><span class="num">2</span><div><h3>Ask the foreground AI to read first</h3><p>The AI should inspect README, AGENTS, examples, readme_pmp, and relevant folder guidance before giving architecture advice or suggesting changes.</p></div></div>
+        <div class="step"><span class="num">3</span><div><h3>Use workorders for file-changing work</h3><p>When the task needs an executor, the workorder names the target repo, scope, constraints, checks, fallback behavior, and expected completion note.</p></div></div>
       </div>
     </section>
 
     <section class="section">
       <h2>Example startup prompt</h2>
-      <p>
-        This is the basic shape. Replace the repository URL with the project repository created from the Doctor Bones template.
-      </p>
+      <p>This is the basic shape. Replace the repository URL with the project repository created from the Doctor Bones template.</p>
       <pre><code>You are the foreground AI for &lt;your project repository URL&gt;.
 
 Current repo state beats chat memory. Inspect the current project repository before giving
@@ -351,87 +182,56 @@ foreground/executor decision, and the smallest useful next move.</code></pre>
         When a repository has enough discipline, a short prompt can carry more meaning than it looks like. The AI is not guessing from a blank page.
         It can read the repo rules, follow the examples, respect the workorder boundary, and apply referenced architecture lenses such as PFEM and PFCOMM.
       </p>
-      <p style="margin-top: 14px;">
-        The demo below used fuller PFEM and PFCOMM references, not only the lightweight snapshots embedded in Doctor Bones.
-      </p>
+      <p style="margin-top: 14px;">The demo below used fuller PFEM and PFCOMM references, not only the lightweight snapshots embedded in Doctor Bones.</p>
       <pre><code>Make me a WebGL 3D demo of what PFEM and PFCOMM would do in the context of a resilient mesh
 of flying things that need to be coordinated with a mission objective.</code></pre>
-      <div class="actions">
-        <a class="button secondary" href="webgl_demo3.html">Open the WebGL demo</a>
-      </div>
-      <p style="margin-top: 14px;">
-        The point is not that the prompt is magic. The point is that the repository narrows the lane before the executor starts making files:
-        evidence stays separate from coordination, authority is explicit, outputs are bounded, and checks or completion notes can be named.
-      </p>
+      <div class="actions"><a class="button secondary" href="webgl_demo3.html">Open the WebGL demo</a></div>
+      <p style="margin-top: 14px;">The point is not that the prompt is magic. The point is that the repository narrows the lane before the executor starts making files: evidence stays separate from coordination, authority is explicit, outputs are bounded, and checks or completion notes can be named.</p>
     </section>
 
     <section class="section">
       <h2>Same architecture, different mission surface</h2>
-      <p>
-        The real PFEM and PFCOMM architectures can also shape a critical-infrastructure alert handling system and a ham/RACES field interface for watching the skies. Same generic boundaries; different operator surfaces.
-      </p>
-      <div class="actions">
-        <a class="button secondary" href="pfem-pfcomm-kungfu.html">Open the PFEM/PFCOMM kung fu page</a>
-      </div>
+      <p>The real PFEM and PFCOMM architectures can also shape a critical-infrastructure alert handling system and a ham/RACES field interface for watching the skies. Same generic boundaries; different operator surfaces.</p>
+      <div class="actions"><a class="button secondary" href="pfem-pfcomm-kungfu.html">Open the PFEM/PFCOMM kung fu page</a></div>
     </section>
 
     <section class="section">
       <h2>Reference architecture and reference cognition</h2>
-      <p>
-        PFEM can be used as a reference architecture when you are building an evidence-bearing system: it gives you reusable boundaries for raw evidence, normalized observations, findings, packages, reports, rollups, provenance, confidence, and proof.
-      </p>
-      <p style="margin-top: 14px;">
-        PFEM can also be used as reference cognition when you are evaluating someone else's system. In that mode, it is a structured way for a human or AI reviewer to ask what the system is treating as evidence, what is only inference, what has authority, what proves closure, and where the architecture has collapsed separate concepts into one blob.
-      </p>
+      <p>PFEM can be used as a reference architecture when you are building an evidence-bearing system: it gives you reusable boundaries for raw evidence, normalized observations, findings, packages, reports, rollups, provenance, confidence, and proof.</p>
+      <p style="margin-top: 14px;">PFEM can also be used as reference cognition when you are evaluating someone else's system. In that mode, it is a structured way for a human or AI reviewer to ask what the system is treating as evidence, what is only inference, what has authority, what proves closure, and where the architecture has collapsed separate concepts into one blob.</p>
     </section>
 
     <section class="section">
       <h2>What can Doctor Bones' built-in PFEM-lite do for coding agents and testing repositories?</h2>
-      <p>
-        PFEM-lite gives a coding agent a first-pass evidence-boundary lens for a repository. It helps the agent ask whether source inputs, normalized records, findings, reports, packages, rollups, tool calls, checks, and completion claims are being kept separate.
-      </p>
-      <p style="margin-top: 14px;">
-        PFEM principles appear to address significant concerns when creating or evaluating AI agents, MCP code, tool environments, and configuration surfaces. The useful question is not only whether the agent can call a tool, but whether the surrounding repository keeps evidence, authority, action, mutation, verification, and reporting in separate, inspectable lanes.
-      </p>
-      <div class="grid three" aria-label="PFEM-lite coding and testing uses">
-        <article class="card">
-          <h3>Review agent changes</h3>
-          <p>Look for places where generated code collapses evidence, interpretation, action, reports, and proof into one blob.</p>
-        </article>
-        <article class="card">
-          <h3>Test repository boundaries</h3>
-          <p>Ask whether tests, fixtures, schemas, CI workflows, or validation scripts prove the important transitions instead of only checking that files exist.</p>
-        </article>
-        <article class="card">
-          <h3>Keep tool authority honest</h3>
-          <p>Distinguish read-only inspection, draft/propose work, mutation, publish/send actions, and human-approved execution.</p>
-        </article>
+      <p>PFEM-lite gives a coding agent a first-pass evidence-boundary lens for a repository. It helps the agent ask whether source inputs, normalized records, findings, reports, packages, rollups, tool calls, checks, and completion claims are being kept separate.</p>
+      <p style="margin-top: 14px;">PFEM principles appear to address significant concerns when creating or evaluating AI agents, MCP code, tool environments, and configuration surfaces. The useful question is not only whether the agent can call a tool, but whether the surrounding repository keeps evidence, authority, action, mutation, verification, and reporting in separate, inspectable lanes.</p>
+      <div class="grid" aria-label="PFEM-lite coding and testing uses">
+        <article class="card"><h3>Review agent changes</h3><p>Look for places where generated code collapses evidence, interpretation, action, reports, and proof into one blob.</p></article>
+        <article class="card"><h3>Test repository boundaries</h3><p>Ask whether tests, fixtures, schemas, CI workflows, or validation scripts prove the important transitions instead of only checking that files exist.</p></article>
+        <article class="card"><h3>Keep tool authority honest</h3><p>Distinguish read-only inspection, draft/propose work, mutation, publish/send actions, and human-approved execution.</p></article>
       </div>
-      <p style="margin-top: 14px;">
-        This is not a full PFEM audit. It is a useful starter discipline for coding agents: inspect the repo, cite what was read, name the boundary risks, and create a workorder when the fix needs real execution.
-      </p>
+      <p style="margin-top: 14px;">This is not a full PFEM audit. It is a useful starter discipline for coding agents: inspect the repo, cite what was read, name the boundary risks, and create a workorder when the fix needs real execution.</p>
     </section>
 
     <section class="section">
       <h2>What exactly are PFEM-lite and PFCOMM-lite?</h2>
-      <p>
-        PFEM-lite and PFCOMM-lite are small embedded reference snapshots inside Doctor Bones. They give the AI enough vocabulary and boundary discipline to do useful first-pass analysis when the full PFEM or PFCOMM repositories are not being inspected.
-      </p>
+      <p>PFEM-lite and PFCOMM-lite are small embedded reference snapshots inside Doctor Bones. They give the AI enough vocabulary and boundary discipline to do useful first-pass analysis when the full PFEM or PFCOMM repositories are not being inspected.</p>
       <div class="grid two" aria-label="PFEM-lite and PFCOMM-lite explanations">
-        <article class="card">
-          <span class="file-name">docs/internal-reference/pfem-lite.md</span>
-          <h3>PFEM-lite</h3>
-          <p>A lightweight evidence-governance lens: raw evidence, normalized observations, findings, alerts, evidence packages, reports, rollups, provenance, confidence, and proof should not be collapsed.</p>
-        </article>
-        <article class="card">
-          <span class="file-name">docs/internal-reference/pfcomm-lite.md</span>
-          <h3>PFCOMM-lite</h3>
-          <p>A lightweight command-and-coordination lens: command intent, authority context, tasking, assignments, resources, status, receipts, messages, decisions, after-action records, and reports should not be collapsed.</p>
-        </article>
+        <article class="card"><span class="file-name">docs/internal-reference/pfem-lite.md</span><h3>PFEM-lite</h3><p>A lightweight evidence-governance lens: raw evidence, normalized observations, findings, alerts, evidence packages, reports, rollups, provenance, confidence, and proof should not be collapsed.</p></article>
+        <article class="card"><span class="file-name">docs/internal-reference/pfcomm-lite.md</span><h3>PFCOMM-lite</h3><p>A lightweight command-and-coordination lens: command intent, authority context, tasking, assignments, resources, status, receipts, messages, decisions, after-action records, and reports should not be collapsed.</p></article>
       </div>
-      <p style="margin-top: 14px;">
-        They are not replacements for the real PFEM and PFCOMM architectures. They are the repo-smarts Doctor Bones carries by default so an AI can start in the right lane before you decide whether full architecture inspection is needed.
+      <p style="margin-top: 14px;">They are not replacements for the real PFEM and PFCOMM architectures. They are the repo-smarts Doctor Bones carries by default so an AI can start in the right lane before you decide whether full architecture inspection is needed.</p>
+    </section>
+
+    <section class="section">
+      <h2>What we did for Kris with PFEM and PFCOMM smarts.</h2>
+      <p>
+        Kris's ShopOS concept is a good example of Doctor Bones as reference cognition. The screenshot already shows machine nodes, operational states, jobs, materials, dust collection, safety status, and shop-control surfaces. PFEM helps separate shop evidence from findings and proof. PFCOMM helps separate operator intent, authority, commands, receipts, status, and after-action accountability.
       </p>
+      <p style="margin-top: 14px;">
+        The point is not to turn one screenshot into fake certainty. The point is to show how a foreground AI can preserve the idea, estimate probability and risk honestly, and create the architecture path a real builder would need before handing bounded work to an executor.
+      </p>
+      <div class="actions"><a class="button secondary" href="Kris.html">Open the Kris ShopOS analysis</a></div>
     </section>
 
     <section class="section">
