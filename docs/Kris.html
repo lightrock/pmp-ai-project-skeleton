@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor Bones — Kris ShopOS PFEM/PFCOMM Product Analysis</title>
+  <style>
+    :root {
+      --bg: #f6f3ed;
+      --panel: #fffdf8;
+      --ink: #1f2933;
+      --muted: #5f6c7b;
+      --line: #d8cdbb;
+      --accent: #3f3f46;
+      --soft: #f1f5f9;
+      --shadow: 0 14px 36px rgba(31, 41, 51, 0.10);
+      --good: #166534;
+      --warn: #92400e;
+      --bad: #991b1b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+
+    .hero,
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero { padding: clamp(28px, 5vw, 52px); }
+    .section { margin-top: 18px; padding: clamp(22px, 4vw, 34px); }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 16px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+    }
+
+    h2 { margin: 0 0 10px; font-size: clamp(1.35rem, 3vw, 2rem); letter-spacing: -0.03em; }
+    h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    p { margin: 0; color: var(--muted); }
+    ul { margin: 12px 0 0; color: var(--muted); }
+    li { margin: 6px 0; }
+    strong { color: var(--ink); }
+
+    .lede {
+      max-width: 850px;
+      margin-top: 22px;
+      font-size: clamp(1.08rem, 2vw, 1.24rem);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    a.button.secondary { background: white; color: var(--ink); border-color: var(--line); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .card p { color: var(--muted); }
+
+    .badge {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .score {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+    }
+
+    .score .num { font-size: 2rem; font-weight: 850; letter-spacing: -0.04em; color: var(--ink); }
+    .score .label { color: var(--muted); font-weight: 750; }
+    .score.good .num { color: var(--good); }
+    .score.warn .num { color: var(--warn); }
+    .score.bad .num { color: var(--bad); }
+
+    .flow {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #111827;
+      color: #f8fafc;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      white-space: pre;
+    }
+
+    footer { margin-top: 24px; color: var(--muted); font-size: 0.95rem; }
+    footer a { color: var(--ink); font-weight: 700; }
+
+    @media (max-width: 900px) {
+      main { width: min(100% - 20px, 1080px); padding-top: 20px; }
+      .grid, .grid.two, .grid.four { grid-template-columns: 1fr; }
+      .hero, .section { border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Doctor Bones applied example</p>
+      <h1>Kris's ShopOS concept through PFEM and PFCOMM smarts.</h1>
+      <p class="lede">
+        A friend showed a concept screen for <strong>ShopOS</strong>: a smart-shop control surface for machines, dust collection, jobs, materials, settings, and system status. This page shows how Doctor Bones would help turn that concept into buildable architecture without losing the product idea in chat.
+      </p>
+      <div class="actions">
+        <a class="button" href="index.html">Back to Doctor Bones</a>
+        <a class="button secondary" href="https://github.com/lightrock/drbones">Open repository</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Source material boundary</h2>
+      <p>
+        This analysis is based on a screenshot of a product concept, not a full requirements document, hardware bill of materials, safety review, or source repository. The screenshot is enough to see the intended product shape, but not enough to certify feasibility, safety, cost, or production readiness.
+      </p>
+      <p style="margin-top: 14px;">
+        The honest Doctor Bones move is to preserve that distinction: <strong>visible concept evidence</strong> is not the same thing as <strong>verified requirements</strong>, <strong>machine-control authority</strong>, or <strong>tested implementation</strong>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What Kris already appears to have thought through</h2>
+      <p>
+        The concept is stronger than a random dashboard mockup. It already shows a product mental model, not only a pretty screen.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">Nodes</span>
+          <h3>Machine-node thinking</h3>
+          <p>The splash screen and dashboard reference multiple nodes, including table saw, miter station, dust collection, material database, job manager, and system check.</p>
+        </article>
+        <article class="card">
+          <span class="badge">States</span>
+          <h3>Operational status is visible</h3>
+          <p>Machines are marked ready, running, offline, or OK. That means Kris is already thinking about state, not just navigation.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Workflow</span>
+          <h3>Jobs and materials are first-class</h3>
+          <p>The concept includes job lists, parts counts, templates, materials, and settings. That points toward shop workflow, not only remote control.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Safety</span>
+          <h3>Control is implied, not ignored</h3>
+          <p>Fence position, go-to-position, jog/manual, E-stop circuit, dust collection, and power monitor imply safety and authority boundaries that must be designed deliberately.</p>
+        </article>
+        <article class="card">
+          <span class="badge">UX</span>
+          <h3>Mobile and panel surfaces are present</h3>
+          <p>The mockup shows dashboard, machine control, dust collection, jobs, and settings in responsive/sample screens. That is the right instinct for shop-floor use.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Brand</span>
+          <h3>The product has a name and lane</h3>
+          <p>"ShopOS: Smart shop. Total control." is a coherent product promise. The architecture has to earn that promise instead of letting the slogan outrun safety.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>PFEM reading: what is evidence in this system?</h2>
+      <p>
+        PFEM helps ShopOS avoid turning sensor readings, machine reports, inferred states, job recommendations, and control actions into one dangerous blob. In a shop-control system, this matters because stale or wrong state can break material, tools, or people.
+      </p>
+      <div class="flow">raw machine signal
+→ normalized shop observation
+→ correlated machine/job/material state
+→ finding or alert
+→ operator-facing recommendation
+→ optional command proposal
+→ command execution record
+→ verification/evidence of effect</div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Evidence records</h3>
+          <p>Examples: fence encoder reading, blade power state, dust collector current draw, blast gate position, E-stop continuity, machine-node heartbeat, job step status, material inventory count, calibration timestamp.</p>
+        </article>
+        <article class="card">
+          <h3>Boundary rule</h3>
+          <p>A reading is not a finding. A finding is not a command. A command is not proof that the machine moved correctly. Verification needs its own evidence path.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>PFCOMM reading: who is allowed to tell the shop what to do?</h2>
+      <p>
+        PFCOMM helps ShopOS separate command intent, authority, tasking, assignments, machine status, action receipts, and after-action accountability. This is the difference between a useful smart shop and a risky remote-control toy.
+      </p>
+      <div class="flow">operator intent
+→ authority/context check
+→ task proposal
+→ machine assignment
+→ safety interlock check
+→ command dispatch
+→ action receipt
+→ verified status update
+→ job/history record</div>
+      <div class="grid two">
+        <article class="card">
+          <h3>Command records</h3>
+          <p>Examples: "move table-saw fence to 36.125 in," "start dust collection," "open table-saw blast gate," "mark job step complete," "calibrate miter station." Each needs authority context and receipt handling.</p>
+        </article>
+        <article class="card">
+          <h3>Authority rule</h3>
+          <p>The app may propose or request an action. Machine firmware, safety interlocks, and human confirmation decide whether action is allowed. UI desire is not operational authority.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What is necessary to build it</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>1. Product spine</h3>
+          <p>Define the day-one product: which machines are supported, which controls are read-only, which are manual-assist, and which are allowed to move anything.</p>
+        </article>
+        <article class="card">
+          <h3>2. Node contract</h3>
+          <p>Specify every machine node: identity, heartbeat, capabilities, sensors, calibration, safety state, command surface, and failure behavior.</p>
+        </article>
+        <article class="card">
+          <h3>3. Evidence model</h3>
+          <p>Separate raw hardware input, normalized observation, derived shop state, finding, alert, recommendation, and report.</p>
+        </article>
+        <article class="card">
+          <h3>4. Command model</h3>
+          <p>Separate operator intent, authority check, command proposal, dispatch, receipt, verification, cancellation, timeout, and emergency stop behavior.</p>
+        </article>
+        <article class="card">
+          <h3>5. Safety envelope</h3>
+          <p>Document hard no-go rules: local E-stop wins, physical interlocks win, stale sensor data blocks motion, unknown node state blocks control.</p>
+        </article>
+        <article class="card">
+          <h3>6. UI surfaces</h3>
+          <p>Build the dashboard, per-machine screen, dust collection screen, jobs/materials flow, settings, diagnostics, and maintenance/calibration views.</p>
+        </article>
+        <article class="card">
+          <h3>7. Hardware integration path</h3>
+          <p>Start with simulators and read-only telemetry. Move to bench hardware. Only then approach controlled movement with interlocks and test fixtures.</p>
+        </article>
+        <article class="card">
+          <h3>8. Test and audit layer</h3>
+          <p>Every action needs repeatable tests: stale node, wrong position, lost heartbeat, E-stop active, dust collector unavailable, command timeout, operator cancel.</p>
+        </article>
+        <article class="card">
+          <h3>9. Release discipline</h3>
+          <p>Use Doctor Bones workorders, checks, examples, completion reports, and lessons learned so the architecture does not live only in Kris's head or a chat thread.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How Doctor Bones would help Kris build it</h2>
+      <p>
+        Doctor Bones would not start by generating a giant app. It would turn the concept into durable repo memory and then hand bounded tasks to an executor AI or developer.
+      </p>
+      <div class="grid two">
+        <article class="card">
+          <h3>Foreground AI work</h3>
+          <ul>
+            <li>Read the concept material and ask only the questions needed for the next slice.</li>
+            <li>Create repo files for product intent, machine-node contracts, evidence boundaries, command boundaries, safety rules, and UI scope.</li>
+            <li>Create workorders for small executable slices.</li>
+            <li>Keep PFEM and PFCOMM terms honest when the project says evidence, command, safety, proof, status, ready, running, or offline.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Executor AI or developer work</h3>
+          <ul>
+            <li>Implement the named slice only.</li>
+            <li>Run simulator and contract checks.</li>
+            <li>Report changed files, checks run, failures, unknowns, and exact workorder path.</li>
+            <li>Create lessons learned when a hardware, safety, or command-boundary trap appears.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recommended first build path</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="badge">Milestone 0</span>
+          <h3>Repo skeleton</h3>
+          <p>Start a ShopOS repository from Doctor Bones. Add product intent, AGENTS guidance, node glossary, safety words, and first workorder template.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Milestone 1</span>
+          <h3>Simulator only</h3>
+          <p>Build the dashboard against fake nodes: table saw, miter station, dust collector, job manager, material database, system health.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Milestone 2</span>
+          <h3>Read-only shop telemetry</h3>
+          <p>Bring one real node online in read-only mode. Prove heartbeat, calibration age, power status, and safe failure behavior.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Milestone 3</span>
+          <h3>Assistive commands</h3>
+          <p>Add commands that do not move dangerous equipment first: mark job step, select template, start a simulated dust collector, request maintenance.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Milestone 4</span>
+          <h3>Controlled actuation</h3>
+          <p>Only after evidence, command, and safety contracts pass: bench-test one controlled movement such as fence positioning with physical limits and local override.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Milestone 5</span>
+          <h3>Real shop pilot</h3>
+          <p>Run a constrained pilot with logging, manual confirmation, maintenance checklist, rollback path, and hard separation between monitor mode and control mode.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Probability and risk estimate</h2>
+      <p>
+        These are architecture estimates from a screenshot-level concept. They are not investment advice, safety certification, or a costed engineering plan.
+      </p>
+      <div class="grid four">
+        <div class="score good">
+          <div class="label">Success probability</div>
+          <div class="num">68%</div>
+          <p>For a useful simulator plus early read-only prototype if the scope is kept narrow.</p>
+        </div>
+        <div class="score warn">
+          <div class="label">Success confidence</div>
+          <div class="num">54%</div>
+          <p>Moderate-low because the screenshot does not reveal hardware, budget, firmware, or safety assumptions.</p>
+        </div>
+        <div class="score bad">
+          <div class="label">Risk</div>
+          <div class="num">62%</div>
+          <p>High if the project jumps too quickly into live machine actuation or treats UI status as proof.</p>
+        </div>
+        <div class="score warn">
+          <div class="label">Risk confidence</div>
+          <div class="num">58%</div>
+          <p>Moderate because the visible concept already hints at safety-critical control surfaces.</p>
+        </div>
+      </div>
+      <p style="margin-top: 14px;">
+        Better scoped estimate: a polished <strong>non-actuating ShopOS dashboard/simulator</strong> has a much higher success probability, around <strong>82%</strong>. A real <strong>machine-control product</strong> drops closer to <strong>35-45%</strong> until safety, hardware, liability, calibration, and integration strategy are specified.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>The blunt build advice</h2>
+      <p>
+        Kris has enough product shape here to justify a serious prototype. The danger is not lack of idea. The danger is building the beautiful control UI before the evidence, command, safety, and verification contracts exist.
+      </p>
+      <p style="margin-top: 14px;">
+        Doctor Bones' job is to make the next move boring and correct: preserve the concept, define the boundaries, write the workorders, build the simulator, add tests, and do not let any AI or developer claim that a patch, a mockup, or a button press proves a machine is safe.
+      </p>
+    </section>
+
+    <footer>
+      This page is a Doctor Bones example of using PFEM-lite and PFCOMM-lite as reference cognition for a product concept. It is not a safety certification, hardware plan, or production design.
+    </footer>
+  </main>
+</body>
+</html>
